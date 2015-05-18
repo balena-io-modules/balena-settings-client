@@ -3,7 +3,7 @@ path = require('path')
 userHome = require('user-home')
 
 settings =
-	remoteUrl: 'https://dashboard.resin.io'
+	remoteUrl: 'https://api.resin.io'
 	dataDirectory: path.join(userHome, '.resin')
 
 module.exports = new ConfJS
