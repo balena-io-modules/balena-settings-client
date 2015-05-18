@@ -9,7 +9,7 @@ describe 'Settings:', ->
 
 		it 'should be able to get remoteUrl', ->
 			remoteUrl = settings.get('remoteUrl')
-			expect(remoteUrl).to.equal('https://dashboard.resin.io')
+			expect(remoteUrl).to.equal('https://api.resin.io')
 
 	describe 'dataDirectory', ->
 
