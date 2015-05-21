@@ -4,6 +4,7 @@ resin-settings-client
 [![npm version](https://badge.fury.io/js/resin-settings-client.svg)](http://badge.fury.io/js/resin-settings-client)
 [![dependencies](https://david-dm.org/resin-io/resin-settings-client.png)](https://david-dm.org/resin-io/resin-settings-client.png)
 [![Build Status](https://travis-ci.org/resin-io/resin-settings-client.svg?branch=master)](https://travis-ci.org/resin-io/resin-settings-client)
+[![Build status](https://ci.appveyor.com/api/projects/status/a1tfwovw1kp421sa?svg=true)](https://ci.appveyor.com/project/jviotti/resin-settings-client)
 
 Resin.io client application shared settings.
 
