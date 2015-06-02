@@ -8,6 +8,7 @@ userHome = require('user-home');
 
 settings = {
   remoteUrl: 'https://api.resin.io',
+  dashboardUrl: 'https://dashboard.resin.io',
   dataDirectory: path.join(userHome, '.resin')
 };
 
