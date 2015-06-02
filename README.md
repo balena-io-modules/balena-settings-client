@@ -23,6 +23,7 @@ Documentation
 The following settings are documented:
 
 - `remoteUrl`: The default Resin.io server url.
+- `dashboardUrl`: The default Resin.io dashboard url.
 - `dataDirectory`: The default per user data directory path.
 
 You can use `settings.get(<setting name>)` to get their values.
