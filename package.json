@@ -1,6 +1,6 @@
 {
   "name": "resin-settings-client",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Resin.io client application shared settings",
   "main": "build/settings.js",
   "homepage": "https://github.com/resin-io/resin-settings-client",
