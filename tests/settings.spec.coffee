@@ -1,25 +1,31 @@
+m = require('mochainon')
 path = require('path')
-chai = require('chai')
-expect = chai.expect
 settings = require('../lib/settings')
 
 describe 'Settings:', ->
 
-	describe 'remoteUrl', ->
+	describe 'given default values', ->
 
-		it 'should be able to get remoteUrl', ->
-			remoteUrl = settings.get('remoteUrl')
-			expect(remoteUrl).to.equal('https://api.resin.io')
+		beforeEach ->
 
-	describe 'dashboardUrl', ->
+			# Manually restore defaults
+			settings._data = settings._options.default
 
-		it 'should be able to get dashboardUrl', ->
-			remoteUrl = settings.get('dashboardUrl')
-			expect(remoteUrl).to.equal('https://dashboard.resin.io')
+		describe 'remoteUrl', ->
 
-	describe 'dataDirectory', ->
+			it 'should be able to get remoteUrl', ->
+				remoteUrl = settings.get('remoteUrl')
+				m.chai.expect(remoteUrl).to.equal('https://api.resin.io')
 
-		it 'should be an absolute path', ->
-			dataDirectory = settings.get('dataDirectory')
-			isAbsolute = dataDirectory is path.resolve(dataDirectory)
-			expect(isAbsolute).to.be.true
+		describe 'dashboardUrl', ->
+
+			it 'should be able to get dashboardUrl', ->
+				remoteUrl = settings.get('dashboardUrl')
+				m.chai.expect(remoteUrl).to.equal('https://dashboard.resin.io')
+
+		describe 'dataDirectory', ->
+
+			it 'should be an absolute path', ->
+				dataDirectory = settings.get('dataDirectory')
+				isAbsolute = dataDirectory is path.resolve(dataDirectory)
+				m.chai.expect(isAbsolute).to.be.true

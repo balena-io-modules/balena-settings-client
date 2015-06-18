@@ -1,6 +1,6 @@
 {
   "name": "resin-settings-client",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Resin.io client application shared settings",
   "main": "build/settings.js",
   "homepage": "https://github.com/resin-io/resin-settings-client",
@@ -18,22 +18,24 @@
   },
   "scripts": {
     "test": "gulp test",
-    "prepublish": "gulp build"
+    "prepublish": "gulp build",
+    "readme": "jsdoc2md --template doc/README.hbs build/settings.js > README.md"
   },
   "author": "Juan Cruz Viotti <juanchiviotti@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "chai": "~1.10.0",
     "coffee-script": "~1.8.0",
     "gulp": "~3.8.10",
     "gulp-coffee": "~2.2.0",
     "gulp-coffeelint": "~0.4.0",
     "gulp-mocha": "~2.0.0",
     "gulp-util": "~3.0.1",
-    "mocha": "~2.0.1"
+    "jsdoc-to-markdown": "^1.1.1",
+    "mocha": "~2.0.1",
+    "mochainon": "^1.0.0"
   },
   "dependencies": {
-    "conf.js": "^1.1.0",
+    "conf.js": "^1.1.1",
     "user-home": "^1.1.1"
   }
 }

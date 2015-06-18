@@ -33,27 +33,12 @@ The following settings are documented:
 
 Notice that Resin Settings Client reads `$HOME/.resin/config` and `$PWD/.resinconf` to customise it's per user and per application values.
 
-<a name="module_settings..get"></a>
-### settings~get([name]) ⇒ <code>\*</code>
-This function returns an object containing all settings if you don't pass a setting name.
-
-**Kind**: inner method of <code>[settings](#module_settings)</code>  
-**Summary**: Get a settings value  
-**Returns**: <code>\*</code> - setting value  
-**Access:** public  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| [name] | <code>String</code> | setting name |
-
-**Example**  
-```js
-remoteUrl = settings.get('remoteUrl')
-```
-**Example**  
-```js
-allSettings = settings.get()
-```
+{{#module name="settings"}}
+{{>body~}}
+{{>member-index~}}
+{{>separator~}}
+{{>members~}}
+{{/module}}
 
 Support
 -------
