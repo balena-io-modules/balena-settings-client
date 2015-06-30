@@ -35,6 +35,8 @@ settings =
 	dashboardUrl: 'https://dashboard.resin.io'
 	dataDirectory: path.join(userHome, '.resin')
 
+settings.cacheDirectory = path.join(settings.dataDirectory, 'cache')
+
 module.exports = new ConfJS
 	userConfig: path.join(settings.dataDirectory, 'config')
 	localConfig: '.resinconf'

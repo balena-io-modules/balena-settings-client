@@ -34,6 +34,7 @@ The following settings are documented:
 - `remoteUrl`: The default Resin.io server url.
 - `dashboardUrl`: The default Resin.io dashboard url.
 - `dataDirectory`: The default per user data directory path.
+- `cacheDirectory`: The default per user image cache directory path.
 
 Notice that Resin Settings Client reads `$HOME/.resin/config` and `$PWD/.resinconf` to customise it's per user and per application values.
 
