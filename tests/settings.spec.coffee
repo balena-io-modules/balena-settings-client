@@ -29,3 +29,10 @@ describe 'Settings:', ->
 				dataDirectory = settings.get('dataDirectory')
 				isAbsolute = dataDirectory is path.resolve(dataDirectory)
 				m.chai.expect(isAbsolute).to.be.true
+
+		describe 'cacheDirectory', ->
+
+			it 'should be an absolute path', ->
+				cacheDirectory = settings.get('cacheDirectory')
+				isAbsolute = cacheDirectory is path.resolve(cacheDirectory)
+				m.chai.expect(isAbsolute).to.be.true
