@@ -35,6 +35,7 @@ The following settings are documented:
 - `dashboardUrl`: The default Resin.io dashboard url.
 - `dataDirectory`: The default per user data directory path.
 - `cacheDirectory`: The default per user image cache directory path.
+- `imageCacheTime`: The default time an operating system image is considered fresh.
 
 Notice that Resin Settings Client reads `$HOME/.resin/config` and `$PWD/.resinconf` to customise it's per user and per application values.
 
