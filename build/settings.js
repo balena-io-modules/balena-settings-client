@@ -37,7 +37,8 @@ userHome = require('user-home');
 settings = {
   remoteUrl: 'https://api.resin.io',
   dashboardUrl: 'https://dashboard.resin.io',
-  dataDirectory: path.join(userHome, '.resin')
+  dataDirectory: path.join(userHome, '.resin'),
+  imageCacheTime: 1 * 1000 * 60 * 60 * 24 * 7
 };
 
 settings.cacheDirectory = path.join(settings.dataDirectory, 'cache');

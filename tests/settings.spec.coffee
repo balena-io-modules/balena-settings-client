@@ -36,3 +36,11 @@ describe 'Settings:', ->
 				cacheDirectory = settings.get('cacheDirectory')
 				isAbsolute = cacheDirectory is path.resolve(cacheDirectory)
 				m.chai.expect(isAbsolute).to.be.true
+
+		describe 'imageCacheTime', ->
+
+			it 'should be a number', ->
+				m.chai.expect(settings.get('imageCacheTime')).to.be.a('number')
+
+			it 'should be a positive number', ->
+				m.chai.expect(settings.get('imageCacheTime') > 0).to.be.true
