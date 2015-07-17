@@ -44,3 +44,14 @@ describe 'Settings:', ->
 
 			it 'should be a positive number', ->
 				m.chai.expect(settings.get('imageCacheTime') > 0).to.be.true
+
+		describe 'tokenRefreshInterval', ->
+
+			it 'should be a number', ->
+				m.chai.expect(settings.get('tokenRefreshInterval')).to.be.a('number')
+
+			it 'should be a positive number', ->
+				m.chai.expect(settings.get('tokenRefreshInterval') > 0).to.be.true
+
+			it 'should be an integer', ->
+				m.chai.expect(settings.get('tokenRefreshInterval') % 1).to.equal(0)
