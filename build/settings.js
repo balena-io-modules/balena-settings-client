@@ -39,7 +39,7 @@ settings = {
   dashboardUrl: 'https://dashboard.resin.io',
   dataDirectory: path.join(userHome, '.resin'),
   imageCacheTime: 1 * 1000 * 60 * 60 * 24 * 7,
-  tokenValidityTime: 1 * 1000 * 60 * 60
+  tokenRefreshInterval: 1 * 1000 * 60 * 60
 };
 
 settings.cacheDirectory = path.join(settings.dataDirectory, 'cache');
