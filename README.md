@@ -62,6 +62,13 @@ remoteUrl = settings.get('remoteUrl')
 allSettings = settings.get()
 ```
 
+Modifying settings
+------------------
+
+This module is intended to only provide *read only* access to the settings. Resin Settings Clients reads settings from various locations, like a local `resinrc` file and a per user `config` file, therefore the module doesn't know where to write changes back.
+
+If you want to persist data related to Resin.io, consider using [Resin Settings Storage](https://github.com/resin-io/resin-settings-storage) instead.
+
 Support
 -------
 
