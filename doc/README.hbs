@@ -47,6 +47,35 @@ Notice that Resin Settings Client reads `$HOME/.resin/config` and `$PWD/.resinco
 {{>members~}}
 {{/module}}
 
+Per User config
+---------------
+
+Resin Settings Client attempts to read a JSON config file at `$HOME/.resin/config`. If it exists, it will merge the changes described in the mentioned file with the default settings mentioned in the documentation.
+
+For example, we can change the `remoteUrl`/`dashboardUrl` to match staging like this:
+
+```sh
+$ cat $HOME/.resin/config
+{
+  "remoteUrl": "https://api.resinstaging.io",
+  "dashboardUrl": "https://dashboard.resinstaging.io"
+}
+```
+
+Per Project config
+------------------
+
+Resin Settings Client attempts to read a JSON config file at `$PWD/.resinconfig`. If it exists, it will take precedence over a *per user config* which itself takes precedence over the default settings.
+
+For example, this will change the cache directory just for this project:
+
+```sh
+$ cat .resinconfig
+{
+  "cacheDirectory": "/opt/resin/cache"
+}
+```
+
 Modifying settings
 ------------------
 
