@@ -37,6 +37,7 @@ The following settings are documented:
 - `cacheDirectory`: The default per user image cache directory path.
 - `imageCacheTime`: The default time an operating system image is considered fresh.
 - `tokenRefreshInterval`: The interval to refresh the token, to prevent it from becoming outdated.
+- `projectsDirectory`: The default directory to store resin application projects.
 
 Notice that Resin Settings Client reads `$HOME/.resin/config` and `$PWD/.resinconf` to customise it's per user and per application values.
 
