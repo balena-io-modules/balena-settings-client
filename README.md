@@ -29,67 +29,61 @@ $ npm install --save resin-settings-client
 Documentation
 -------------
 
-The following settings are documented:
+This module attempts to retrieve configuration from the following places:
 
-- `remoteUrl`: The default Resin.io server url.
-- `dashboardUrl`: The default Resin.io dashboard url.
-- `dataDirectory`: The default per user data directory path.
-- `cacheDirectory`: The default per user image cache directory path.
-- `imageCacheTime`: The default time an operating system image is considered fresh.
-- `tokenRefreshInterval`: The interval to refresh the token, to prevent it from becoming outdated.
-- `projectsDirectory`: The default directory to store resin application projects.
+**UNIX:**
 
-Notice that Resin Settings Client reads `$HOME/.resin/config` and `$PWD/.resinconf` to customise it's per user and per application values.
+- Default settings.
+- `$HOME/.resinrc.yml`.
+- `$PWD/.resinrc.yml`.
+- Environment variables matching `RESINRC_<SETTING_NAME>`.
 
-<a name="module_settings..get"></a>
-### settings~get([name]) ⇒ <code>\*</code>
-This function returns an object containing all settings if you don't pass a setting name.
+**Windows:**
 
-**Kind**: inner method of <code>[settings](#module_settings)</code>  
-**Summary**: Get a settings value  
+- Default settings.
+- `%UserProfile%\_resinrc.yml`.
+- `%cd%\_resinrc.yml`.
+- Environment variables matching `RESINRC_<SETTING_NAME>`.
+
+The values from all locations are merged together, with sources listed below taking precedence.
+
+For example:
+
+```sh
+	$ cat $HOME/.resinrc.yml
+	resinUrl: 'https://resinstaging.io'
+	projectsDirectory: '/opt/resin'
+
+	$ cat $PWD/.resinrc.yml
+	projectsDirectory: '/Users/resin/Projects'
+	dataDirectory: '/opt/resin-data'
+
+	$ echo $RESINRC_DATA_DIRECTORY
+	/opt/cache/resin
+```
+
+That specific environment will have the following configuration:
+
+```yaml
+	resinUrl: 'https://resinstaging.io'
+	projectsDirectory: '/Users/resin/Projects'
+	dataDirectory: '/opt/cache/resin'
+```
+
+<a name="module_settings.get"></a>
+### settings.get(name) ⇒ <code>\*</code>
+**Kind**: static method of <code>[settings](#module_settings)</code>  
+**Summary**: Get a setting  
 **Returns**: <code>\*</code> - setting value  
 **Access:** public  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| [name] | <code>String</code> | setting name |
+| name | <code>String</code> | setting name |
 
 **Example**  
 ```js
-remoteUrl = settings.get('remoteUrl')
-```
-**Example**  
-```js
-allSettings = settings.get()
-```
-
-Per User config
----------------
-
-Resin Settings Client attempts to read a JSON config file at `$HOME/.resin/config`. If it exists, it will merge the changes described in the mentioned file with the default settings mentioned in the documentation.
-
-For example, we can change the `remoteUrl`/`dashboardUrl` to match staging like this:
-
-```sh
-$ cat $HOME/.resin/config
-{
-  "remoteUrl": "https://api.resinstaging.io",
-  "dashboardUrl": "https://dashboard.resinstaging.io"
-}
-```
-
-Per Project config
-------------------
-
-Resin Settings Client attempts to read a JSON config file at `$PWD/.resinconfig`. If it exists, it will take precedence over a *per user config* which itself takes precedence over the default settings.
-
-For example, this will change the cache directory just for this project:
-
-```sh
-$ cat .resinconfig
-{
-  "cacheDirectory": "/opt/resin/cache"
-}
+settings.get('dataDirectory')
 ```
 
 Modifying settings
