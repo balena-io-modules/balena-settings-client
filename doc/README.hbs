@@ -66,12 +66,12 @@ $ cat $HOME/.resin/config
 Per Project config
 ------------------
 
-Resin Settings Client attempts to read a JSON config file at `$PWD/.resinconfig`. If it exists, it will take precedence over a *per user config* which itself takes precedence over the default settings.
+Resin Settings Client attempts to read a JSON config file at `$PWD/.resinconf`. If it exists, it will take precedence over a *per user config* which itself takes precedence over the default settings.
 
 For example, this will change the cache directory just for this project:
 
 ```sh
-$ cat .resinconfig
+$ cat .resinconf
 {
   "cacheDirectory": "/opt/resin/cache"
 }
