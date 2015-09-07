@@ -46,7 +46,7 @@ THE SOFTWARE.
  *
  * ```sh
  *	$ cat $HOME/.resinrc.yml
- *	resinUrl: 'https://resinstaging.io'
+ *	resinUrl: 'resinstaging.io'
  *	projectsDirectory: '/opt/resin'
  *
  *	$ cat $PWD/.resinrc.yml
@@ -60,7 +60,7 @@ THE SOFTWARE.
  * That specific environment will have the following configuration:
  *
  * ```yaml
- *	resinUrl: 'https://resinstaging.io'
+ *	resinUrl: 'resinstaging.io'
  *	projectsDirectory: '/Users/resin/Projects'
  *	dataDirectory: '/opt/cache/resin'
  * ```

@@ -43,14 +43,30 @@ module.exports = {
   	 * @property {String} resinUrl - Resin.io url
   	 * @memberof defaults
    */
-  resinUrl: 'https://resin.io',
+  resinUrl: 'resin.io',
 
   /**
   	 * @property {Function} apiUrl - Resin.io API url
   	 * @memberof defaults
    */
   apiUrl: function() {
-    return utils.addSubdomain(this.resinUrl, 'api');
+    return "https://api." + this.resinUrl;
+  },
+
+  /**
+  	 * @property {Function} vpnUrl - Resin.io VPN url
+  	 * @memberof defaults
+   */
+  vpnUrl: function() {
+    return "vpn." + this.resinUrl;
+  },
+
+  /**
+  	 * @property {Function} registryUrl - Resin.io Registry url
+  	 * @memberof defaults
+   */
+  registryUrl: function() {
+    return "registry." + this.resinUrl;
   },
 
   /**
@@ -58,7 +74,7 @@ module.exports = {
   	 * @memberof defaults
    */
   dashboardUrl: function() {
-    return utils.addSubdomain(this.resinUrl, 'dashboard');
+    return "https://dashboard." + this.resinUrl;
   },
 
   /**

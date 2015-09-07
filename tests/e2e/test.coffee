@@ -17,42 +17,50 @@ getSetting = (setting) ->
 
 wary.it 'should override defaults given a user configuration that points to staging', {}, ->
 	fs.writeFileSync config.paths.user, '''
-		resinUrl: https://resinstaging.io/
+		resinUrl: resinstaging.io/
 	'''
 	Promise.props
 		resinUrl: getSetting('resinUrl')
 		apiUrl: getSetting('apiUrl')
 		dashboardUrl: getSetting('dashboardUrl')
+		vpnUrl: getSetting('vpnUrl')
+		registryUrl: getSetting('registryUrl')
 	.then (settings) ->
-		m.chai.expect(settings.resinUrl).to.equal('https://resinstaging.io/')
+		m.chai.expect(settings.resinUrl).to.equal('resinstaging.io/')
 		m.chai.expect(settings.apiUrl).to.equal('https://api.resinstaging.io/')
 		m.chai.expect(settings.dashboardUrl).to.equal('https://dashboard.resinstaging.io/')
+		m.chai.expect(settings.vpnUrl).to.equal('vpn.resinstaging.io/')
+		m.chai.expect(settings.registryUrl).to.equal('registry.resinstaging.io/')
 
 wary.it 'should give precedence to project configuration', {}, ->
 	fs.writeFileSync config.paths.user, '''
-		resinUrl: https://resinstaging.io/
+		resinUrl: resinstaging.io/
 	'''
 	fs.writeFileSync config.paths.project, '''
-		resinUrl: https://resin.custom.com/
+		resinUrl: resin.custom.com/
 	'''
 	Promise.props
 		resinUrl: getSetting('resinUrl')
 		apiUrl: getSetting('apiUrl')
 		dashboardUrl: getSetting('dashboardUrl')
+		vpnUrl: getSetting('vpnUrl')
+		registryUrl: getSetting('registryUrl')
 	.then (settings) ->
-		m.chai.expect(settings.resinUrl).to.equal('https://resin.custom.com/')
+		m.chai.expect(settings.resinUrl).to.equal('resin.custom.com/')
 		m.chai.expect(settings.apiUrl).to.equal('https://api.resin.custom.com/')
 		m.chai.expect(settings.dashboardUrl).to.equal('https://dashboard.resin.custom.com/')
+		m.chai.expect(settings.vpnUrl).to.equal('vpn.resin.custom.com/')
+		m.chai.expect(settings.registryUrl).to.equal('registry.resin.custom.com/')
 
 wary.it 'should give predecende to environment variable configuration', {}, ->
 	fs.writeFileSync config.paths.user, '''
-		resinUrl: https://resinstaging.io/
+		resinUrl: resinstaging.io/
 	'''
 	fs.writeFileSync config.paths.project, '''
-		resinUrl: https://resin.custom.com/
+		resinUrl: resin.custom.com/
 	'''
-	process.env.RESINRC_RESIN_URL = 'https://resindev.custom.com/'
-	m.chai.expect(getSetting('resinUrl')).to.eventually.equal('https://resindev.custom.com/')
+	process.env.RESINRC_RESIN_URL = 'resindev.custom.com/'
+	m.chai.expect(getSetting('resinUrl')).to.eventually.equal('resindev.custom.com/')
 
 wary.run().catch (error) ->
 	console.error("ERROR: #{error.message}")

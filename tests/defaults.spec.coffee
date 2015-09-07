@@ -14,6 +14,10 @@ describe 'Defaults:', ->
 				url.parse(setting)
 			.to.not.throw(Error)
 
+		it 'should not contain a protocol', ->
+			setting = utils.evaluateSetting(defaults, 'resinUrl')
+			m.chai.expect(url.parse(setting).protocol).to.not.exist
+
 	describe '.apiUrl', ->
 
 		it 'should be a valid url', ->
@@ -22,6 +26,34 @@ describe 'Defaults:', ->
 				url.parse(setting)
 			.to.not.throw(Error)
 
+		it 'should contain an https protocol', ->
+			setting = utils.evaluateSetting(defaults, 'apiUrl')
+			m.chai.expect(url.parse(setting).protocol).to.equal('https:')
+
+	describe '.vpnUrl', ->
+
+		it 'should be a valid url', ->
+			setting = utils.evaluateSetting(defaults, 'vpnUrl')
+			m.chai.expect ->
+				url.parse(setting)
+			.to.not.throw(Error)
+
+		it 'should not contain a protocol', ->
+			setting = utils.evaluateSetting(defaults, 'vpnUrl')
+			m.chai.expect(url.parse(setting).protocol).to.not.exist
+
+	describe '.registryUrl', ->
+
+		it 'should be a valid url', ->
+			setting = utils.evaluateSetting(defaults, 'registryUrl')
+			m.chai.expect ->
+				url.parse(setting)
+			.to.not.throw(Error)
+
+		it 'should not contain a protocol', ->
+			setting = utils.evaluateSetting(defaults, 'registryUrl')
+			m.chai.expect(url.parse(setting).protocol).to.not.exist
+
 	describe '.dashboardUrl', ->
 
 		it 'should be a valid url', ->
@@ -29,6 +61,10 @@ describe 'Defaults:', ->
 			m.chai.expect ->
 				url.parse(setting)
 			.to.not.throw(Error)
+
+		it 'should contain an https protocol', ->
+			setting = utils.evaluateSetting(defaults, 'dashboardUrl')
+			m.chai.expect(url.parse(setting).protocol).to.equal('https:')
 
 	describe '.dataDirectory', ->
 
