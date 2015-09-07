@@ -23,42 +23,87 @@ THE SOFTWARE.
 ###
 
 ###*
+# This module attempts to retrieve configuration from the following places:
+#
+# **UNIX:**
+#
+# - Default settings.
+# - `$HOME/.resinrc.yml`.
+# - `$PWD/.resinrc.yml`.
+# - Environment variables matching `RESINRC_<SETTING_NAME>`.
+#
+# **Windows:**
+#
+# - Default settings.
+# - `%UserProfile%\_resinrc.yml`.
+# - `%cd%\_resinrc.yml`.
+# - Environment variables matching `RESINRC_<SETTING_NAME>`.
+#
+# The values from all locations are merged together, with sources listed below taking precedence.
+#
+# For example:
+#
+# ```sh
+#	$ cat $HOME/.resinrc.yml
+#	resinUrl: 'https://resinstaging.io'
+#	projectsDirectory: '/opt/resin'
+#
+#	$ cat $PWD/.resinrc.yml
+#	projectsDirectory: '/Users/resin/Projects'
+#	dataDirectory: '/opt/resin-data'
+#
+#	$ echo $RESINRC_DATA_DIRECTORY
+#	/opt/cache/resin
+# ```
+#
+# That specific environment will have the following configuration:
+#
+# ```yaml
+#	resinUrl: 'https://resinstaging.io'
+#	projectsDirectory: '/Users/resin/Projects'
+#	dataDirectory: '/opt/cache/resin'
+# ```
+#
 # @module settings
 ###
 
-ConfJS = require('conf.js')
-path = require('path')
-userHome = require('user-home')
+fs = require('fs')
 
-settings =
-	remoteUrl: 'https://api.resin.io'
-	dashboardUrl: 'https://dashboard.resin.io'
-	dataDirectory: path.join(userHome, '.resin')
-	imageCacheTime: 1 * 1000 * 60 * 60 * 24 * 7 # 1 week in milliseconds
-	tokenRefreshInterval: 1 * 1000 * 60 * 60 # 1 hour in milliseconds
-	projectsDirectory: path.join(userHome, 'ResinProjects')
+defaults = require('./defaults')
+environment = require('./environment')
+yaml = require('./yaml')
+utils = require('./utils')
+config = require('./config')
 
-settings.cacheDirectory = path.join(settings.dataDirectory, 'cache')
+readConfigFile = (file) ->
+	try
 
-module.exports = new ConfJS
-	userConfig: path.join(settings.dataDirectory, 'config')
-	localConfig: '.resinconf'
-	default: settings
+		# We read the config files synchronously since
+		# other modules rely on Resin Settings Client
+		# to be ready for usage as soon as possible.
+		return yaml.parse(fs.readFileSync(file, encoding: 'utf8'))
+
+	catch error
+		return {} if error.code is 'ENOENT'
+		throw error
+
+settings = utils.mergeObjects.apply null, [
+	defaults
+	readConfigFile(config.paths.user)
+	readConfigFile(config.paths.project)
+	environment.parse(process.env)
+]
 
 ###*
-# @summary Get a settings value
-# @function get
+# @summary Get a setting
+# @function
 # @public
 #
-# @description
-# This function returns an object containing all settings if you don't pass a setting name.
-#
-# @param {String} [name] - setting name
-# @returns {*} setting value
+# @param {String} name - setting name
+# @return {*} setting value
 #
 # @example
-# remoteUrl = settings.get('remoteUrl')
-#
-# @example
-# allSettings = settings.get()
+# settings.get('dataDirectory')
 ###
+exports.get = (name) ->
+	return utils.evaluateSetting(settings, name)
