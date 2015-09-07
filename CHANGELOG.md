@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.0.0] - 2015-09-07
+
+### Added
+
+- Implement dynamic default settings.
+- Implement environment variables support.
+- Add new `resinUrl` setting.
+- Implement e2e test suite.
+
+### Changed
+
+- Improve documentation.
+- Switch to YAML for configuration files.
+- Use `$HOME/[._]resinrc.yml` for user configuration file.
+- Use `resinrc.yml` for per project configuration file.
+
 ## [2.1.0] - 2015-08-12
 
 ### Added
@@ -61,6 +77,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Default `remoteUrl` to `api.resin.io`.
 
+[3.0.0]: https://github.com/resin-io/resin-settings-client/compare/v2.1.0...v3.0.0
 [2.1.0]: https://github.com/resin-io/resin-settings-client/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/resin-io/resin-settings-client/compare/v1.5.0...v2.0.0
 [1.5.0]: https://github.com/resin-io/resin-settings-client/compare/v1.4.0...v1.5.0
