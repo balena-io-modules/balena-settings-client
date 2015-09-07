@@ -56,6 +56,6 @@ module.exports = {
     		 * @property {String} project - path to project config
     		 * @memberof paths
      */
-    project: path.join(process.cwd(), utils.addHiddenPathPrefix('resinrc.yml'))
+    project: path.join(process.cwd(), 'resinrc.yml')
   }
 };
