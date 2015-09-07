@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.1.0] - 2015-09-07
+
+### Added
+
+- Add `vpnUrl` setting.
+- Add `registryUrl` setting.
+
 ## [3.0.0] - 2015-09-07
 
 ### Added
@@ -77,6 +84,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Default `remoteUrl` to `api.resin.io`.
 
+[3.1.0]: https://github.com/resin-io/resin-settings-client/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/resin-io/resin-settings-client/compare/v2.1.0...v3.0.0
 [2.1.0]: https://github.com/resin-io/resin-settings-client/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/resin-io/resin-settings-client/compare/v1.5.0...v2.0.0
