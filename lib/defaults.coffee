@@ -37,21 +37,35 @@ module.exports =
 	# @property {String} resinUrl - Resin.io url
 	# @memberof defaults
 	###
-	resinUrl: 'https://resin.io'
+	resinUrl: 'resin.io'
 
 	###*
 	# @property {Function} apiUrl - Resin.io API url
 	# @memberof defaults
 	###
 	apiUrl: ->
-		return utils.addSubdomain(@resinUrl, 'api')
+		return "https://api.#{@resinUrl}"
+
+	###*
+	# @property {Function} vpnUrl - Resin.io VPN url
+	# @memberof defaults
+	###
+	vpnUrl: ->
+		return "vpn.#{@resinUrl}"
+
+	###*
+	# @property {Function} registryUrl - Resin.io Registry url
+	# @memberof defaults
+	###
+	registryUrl: ->
+		return "registry.#{@resinUrl}"
 
 	###*
 	# @property {Function} dashboardUrl - Resin.io dashboard url
 	# @memberof defaults
 	###
 	dashboardUrl: ->
-		return utils.addSubdomain(@resinUrl, 'dashboard')
+		return "https://dashboard.#{@resinUrl}"
 
 	###*
 	# @property {String} dataDirectory - data directory path

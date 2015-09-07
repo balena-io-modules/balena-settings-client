@@ -138,25 +138,3 @@ exports.evaluateSetting = (settings = {}, property) ->
 		value = value.call(settings)
 
 	return value
-
-###*
-# @summary Add subdomain to url
-# @function
-# @protected
-#
-# @param {String} remote - remote url
-# @param {String} subdomain - subdomain
-# @returns {String} url with added subdomain
-#
-# @example
-# console.log(utils.addSubdomain('https://resin.io/'), 'api')
-# > https://api.resin.io/
-#
-# @example
-# console.log(utils.addSubdomain('https://staging.resin.io/'), 'dashboard')
-# > https://dashboard.staging.resin.io/
-###
-exports.addSubdomain = (remote, subdomain) ->
-	parsedUrl = url.parse(remote)
-	parsedUrl.host = "#{subdomain}.#{parsedUrl.host}"
-	return url.format(parsedUrl)

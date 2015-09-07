@@ -145,29 +145,3 @@ exports.evaluateSetting = function(settings, property) {
   }
   return value;
 };
-
-
-/**
- * @summary Add subdomain to url
- * @function
- * @protected
- *
- * @param {String} remote - remote url
- * @param {String} subdomain - subdomain
- * @returns {String} url with added subdomain
- *
- * @example
- * console.log(utils.addSubdomain('https://resin.io/'), 'api')
- * > https://api.resin.io/
- *
- * @example
- * console.log(utils.addSubdomain('https://staging.resin.io/'), 'dashboard')
- * > https://dashboard.staging.resin.io/
- */
-
-exports.addSubdomain = function(remote, subdomain) {
-  var parsedUrl;
-  parsedUrl = url.parse(remote);
-  parsedUrl.host = "" + subdomain + "." + parsedUrl.host;
-  return url.format(parsedUrl);
-};

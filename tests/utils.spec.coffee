@@ -171,13 +171,3 @@ describe 'Utils:', ->
 			, 'foo'
 
 			m.chai.expect(setting).to.equal('Hola from Resin!')
-
-	describe '.addSubdomain()', ->
-
-		it 'should add a subdomain', ->
-			result = utils.addSubdomain('https://resin.io/', 'api')
-			m.chai.expect(result).to.equal('https://api.resin.io/')
-
-		it 'should add a new subdomain to a url that already has a subdomain', ->
-			result = utils.addSubdomain('https://staging.resin.io/', 'api')
-			m.chai.expect(result).to.equal('https://api.staging.resin.io/')
