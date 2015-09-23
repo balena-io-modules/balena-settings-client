@@ -97,3 +97,9 @@ module.exports =
 	# @memberof defaults
 	###
 	tokenRefreshInterval: 1 * 1000 * 60 * 60 # 1 hour in milliseconds
+
+	###*
+	# @property {String} apiKeyVariable - api key environment variable
+	# @memberof defaults
+	###
+	apiKeyVariable: 'RESIN_API_KEY'

@@ -107,5 +107,11 @@ module.exports = {
   	 * @property {Number} tokenRefreshInterval - token refresh interval
   	 * @memberof defaults
    */
-  tokenRefreshInterval: 1 * 1000 * 60 * 60
+  tokenRefreshInterval: 1 * 1000 * 60 * 60,
+
+  /**
+  	 * @property {String} apiKeyVariable - api key environment variable
+  	 * @memberof defaults
+   */
+  apiKeyVariable: 'RESIN_API_KEY'
 };

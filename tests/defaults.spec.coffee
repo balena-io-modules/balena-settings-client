@@ -110,3 +110,13 @@ describe 'Defaults:', ->
 		it 'should be an integer', ->
 			setting = utils.evaluateSetting(defaults, 'tokenRefreshInterval')
 			m.chai.expect(setting % 1).to.equal(0)
+
+	describe '.apiKeyVariable', ->
+
+		it 'should be a string', ->
+			setting = utils.evaluateSetting(defaults, 'apiKeyVariable')
+			m.chai.expect(setting).to.be.a('string')
+
+		it 'should not be empty', ->
+			setting = utils.evaluateSetting(defaults, 'apiKeyVariable')
+			m.chai.expect(setting.trim().length).to.not.equal(0)
