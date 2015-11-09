@@ -23,7 +23,7 @@ THE SOFTWARE.
 ###
 
 path = require('path')
-userHome = require('user-home')
+userHome = require('user-home') or __dirname
 utils = require('./utils')
 
 ###*
