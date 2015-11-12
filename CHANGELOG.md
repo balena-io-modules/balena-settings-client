@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.2.2] - 2015-11-12
+
+- Default user home directory to the operating system temporary directory in all instances.
+
 ## [3.2.1] - 2015-11-09
 
 - Default user home directory to `__dirname`.
@@ -94,6 +98,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Default `remoteUrl` to `api.resin.io`.
 
+[3.2.2]: https://github.com/resin-io/resin-settings-client/compare/v3.2.1...v3.2.2
 [3.2.1]: https://github.com/resin-io/resin-settings-client/compare/v3.2.0...v3.2.1
 [3.2.0]: https://github.com/resin-io/resin-settings-client/compare/v3.1.0...v3.2.0
 [3.1.0]: https://github.com/resin-io/resin-settings-client/compare/v3.0.0...v3.1.0
