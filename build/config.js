@@ -26,7 +26,7 @@ var path, userHome, utils;
 
 path = require('path');
 
-userHome = require('user-home');
+userHome = require('home-or-tmp');
 
 utils = require('./utils');
 
