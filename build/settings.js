@@ -67,7 +67,9 @@ THE SOFTWARE.
  *
  * @module settings
  */
-var config, defaults, environment, fs, readConfigFile, settings, utils, yaml;
+var config, defaults, environment, fs, readConfigFile, settings, utils, yaml, _;
+
+_ = require('lodash');
 
 fs = require('fs');
 
@@ -114,3 +116,17 @@ settings = utils.mergeObjects.apply(null, [defaults, readConfigFile(config.paths
 exports.get = function(name) {
   return utils.evaluateSetting(settings, name);
 };
+
+
+/**
+ * @summary Get all settings
+ * @function
+ * @public
+ *
+ * @return {Object} all settings
+ *
+ * @example
+ * settings.getAll()
+ */
+
+exports.getAll = _.constant(settings);

@@ -15,6 +15,13 @@ getSetting = (setting) ->
 			throw new Error(stderr)
 		return stdout.replace(/\n$/, '')
 
+getAll = ->
+	script = path.join(__dirname, 'get-all.coffee')
+	child_process.execAsync("coffee #{script}", encoding: 'utf8').spread (stdout, stderr) ->
+		if not _.isEmpty(stderr)
+			throw new Error(stderr)
+		return JSON.parse(stdout.replace(/\n$/, ''))
+
 wary.it 'should override defaults given a user configuration that points to staging', {}, ->
 	fs.writeFileSync config.paths.user, '''
 		resinUrl: resinstaging.io/
@@ -61,6 +68,17 @@ wary.it 'should give predecende to environment variable configuration', {}, ->
 	'''
 	process.env.RESINRC_RESIN_URL = 'resindev.custom.com/'
 	m.chai.expect(getSetting('resinUrl')).to.eventually.equal('resindev.custom.com/')
+
+wary.it 'should be able to return all settings', {}, ->
+	process.env.RESINRC_PROJECTS_DIRECTORY = '/usr/src/projects'
+	process.env.RESINRC_DATA_DIRECTORY = '/opt'
+	m.chai.expect(getAll()).to.eventually.become
+		resinUrl: 'resindev.custom.com/'
+		dataDirectory: '/opt'
+		projectsDirectory: '/usr/src/projects'
+		imageCacheTime: 604800000
+		tokenRefreshInterval: 3600000
+		apiKeyVariable: 'RESIN_API_KEY'
 
 wary.run().catch (error) ->
 	console.error("ERROR: #{error.message}")
