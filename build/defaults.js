@@ -70,6 +70,14 @@ module.exports = {
   },
 
   /**
+  	 * @property {Function} imageMakerUrl - Resin.io Image Maker url
+  	 * @memberof defaults
+   */
+  imageMakerUrl: function() {
+    return "https://img." + this.resinUrl;
+  },
+
+  /**
   	 * @property {Function} dashboardUrl - Resin.io dashboard url
   	 * @memberof defaults
    */

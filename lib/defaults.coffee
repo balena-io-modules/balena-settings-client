@@ -61,6 +61,13 @@ module.exports =
 		return "registry.#{@resinUrl}"
 
 	###*
+	# @property {Function} imageMakerUrl - Resin.io Image Maker url
+	# @memberof defaults
+	###
+	imageMakerUrl: ->
+		return "https://img.#{@resinUrl}"
+
+	###*
 	# @property {Function} dashboardUrl - Resin.io dashboard url
 	# @memberof defaults
 	###
