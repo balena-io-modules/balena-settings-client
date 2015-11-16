@@ -67,6 +67,7 @@ THE SOFTWARE.
 # @module settings
 ###
 
+_ = require('lodash')
 fs = require('fs')
 
 defaults = require('./defaults')
@@ -107,3 +108,15 @@ settings = utils.mergeObjects.apply null, [
 ###
 exports.get = (name) ->
 	return utils.evaluateSetting(settings, name)
+
+###*
+# @summary Get all settings
+# @function
+# @public
+#
+# @return {Object} all settings
+#
+# @example
+# settings.getAll()
+###
+exports.getAll = _.constant(settings)

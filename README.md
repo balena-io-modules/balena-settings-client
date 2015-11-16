@@ -70,6 +70,11 @@ That specific environment will have the following configuration:
 	dataDirectory: '/opt/cache/resin'
 ```
 
+
+* [settings](#module_settings)
+  * [.get(name)](#module_settings.get) ⇒ <code>\*</code>
+  * [.getAll()](#module_settings.getAll) ⇒ <code>Object</code>
+
 <a name="module_settings.get"></a>
 ### settings.get(name) ⇒ <code>\*</code>
 **Kind**: static method of <code>[settings](#module_settings)</code>  
@@ -84,6 +89,16 @@ That specific environment will have the following configuration:
 **Example**  
 ```js
 settings.get('dataDirectory')
+```
+<a name="module_settings.getAll"></a>
+### settings.getAll() ⇒ <code>Object</code>
+**Kind**: static method of <code>[settings](#module_settings)</code>  
+**Summary**: Get all settings  
+**Returns**: <code>Object</code> - all settings  
+**Access:** public  
+**Example**  
+```js
+settings.getAll()
 ```
 
 Modifying settings
