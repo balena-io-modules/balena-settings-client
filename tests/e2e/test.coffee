@@ -74,7 +74,12 @@ wary.it 'should be able to return all settings', {}, ->
 	process.env.RESINRC_DATA_DIRECTORY = '/opt'
 	m.chai.expect(getAll()).to.eventually.become
 		resinUrl: 'resindev.custom.com/'
+		apiUrl: 'https://api.resindev.custom.com/'
+		vpnUrl: 'vpn.resindev.custom.com/'
+		registryUrl: 'registry.resindev.custom.com/'
+		dashboardUrl: 'https://dashboard.resindev.custom.com/'
 		dataDirectory: '/opt'
+		cacheDirectory: path.join('/opt', 'cache')
 		projectsDirectory: '/usr/src/projects'
 		imageCacheTime: 604800000
 		tokenRefreshInterval: 3600000
