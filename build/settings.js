@@ -129,4 +129,8 @@ exports.get = function(name) {
  * settings.getAll()
  */
 
-exports.getAll = _.constant(settings);
+exports.getAll = function() {
+  return _.mapValues(settings, function(setting, name) {
+    return exports.get(name);
+  });
+};

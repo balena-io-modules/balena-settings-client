@@ -119,4 +119,6 @@ exports.get = (name) ->
 # @example
 # settings.getAll()
 ###
-exports.getAll = _.constant(settings)
+exports.getAll = ->
+	return _.mapValues settings, (setting, name) ->
+		return exports.get(name)
