@@ -22,7 +22,7 @@
     "readme": "jsdoc2md --template doc/README.hbs build/settings.js > README.md"
   },
   "author": "Juan Cruz Viotti <juan@resin.io>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "devDependencies": {
     "bluebird": "^2.9.34",
     "coffee-script": "~1.8.0",
