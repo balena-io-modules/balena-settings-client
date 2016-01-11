@@ -6,6 +6,8 @@ resin-settings-client
 [![Build Status](https://travis-ci.org/resin-io/resin-settings-client.svg?branch=master)](https://travis-ci.org/resin-io/resin-settings-client)
 [![Build status](https://ci.appveyor.com/api/projects/status/a1tfwovw1kp421sa?svg=true)](https://ci.appveyor.com/project/jviotti/resin-settings-client)
 
+Join our online chat at [![Gitter chat](https://badges.gitter.im/resin-io/chat.png)](https://gitter.im/resin-io/chat)
+
 Resin.io client application shared settings.
 
 Role
