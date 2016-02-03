@@ -70,6 +70,14 @@ module.exports = {
   },
 
   /**
+  	 * @property {Function} deltaUrl - Resin.io Delta url
+  	 * @memberof defaults
+   */
+  deltaUrl: function() {
+    return "https://delta." + this.resinUrl;
+  },
+
+  /**
   	 * @property {Function} dashboardUrl - Resin.io dashboard url
   	 * @memberof defaults
    */

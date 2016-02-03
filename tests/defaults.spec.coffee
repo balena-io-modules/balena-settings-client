@@ -66,6 +66,18 @@ describe 'Defaults:', ->
 			setting = utils.evaluateSetting(defaults, 'imageMakerUrl')
 			m.chai.expect(url.parse(setting).protocol).to.equal('https:')
 
+	describe '.deltaUrl', ->
+
+		it 'should be a valid url', ->
+			setting = utils.evaluateSetting(defaults, 'deltaUrl')
+			m.chai.expect ->
+				url.parse(setting)
+			.to.not.throw(Error)
+
+		it 'should contain an https protocol', ->
+			setting = utils.evaluateSetting(defaults, 'deltaUrl')
+			m.chai.expect(url.parse(setting).protocol).to.equal('https:')
+
 	describe '.dashboardUrl', ->
 
 		it 'should be a valid url', ->
