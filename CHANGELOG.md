@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.4.2] - 2016-02-03
+
+- Add `deltaUrl` setting.
+
 ## [3.4.1] - 2015-12-04
 
 - Omit tests from NPM package.
@@ -114,6 +118,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Default `remoteUrl` to `api.resin.io`.
 
+[3.4.2]: https://github.com/resin-io/resin-settings-client/compare/v3.4.1...v3.4.2
 [3.4.1]: https://github.com/resin-io/resin-settings-client/compare/v3.4.0...v3.4.1
 [3.4.0]: https://github.com/resin-io/resin-settings-client/compare/v3.3.1...v3.4.0
 [3.3.1]: https://github.com/resin-io/resin-settings-client/compare/v3.3.0...v3.3.1
