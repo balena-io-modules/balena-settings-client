@@ -60,6 +60,13 @@ module.exports =
 		return "https://img.#{@resinUrl}"
 
 	###*
+	# @property {Function} deltaUrl - Resin.io Delta url
+	# @memberof defaults
+	###
+	deltaUrl: ->
+		return "https://delta.#{@resinUrl}"
+
+	###*
 	# @property {Function} dashboardUrl - Resin.io dashboard url
 	# @memberof defaults
 	###

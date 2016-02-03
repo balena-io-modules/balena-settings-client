@@ -78,6 +78,7 @@ wary.it 'should be able to return all settings', {}, ->
 		vpnUrl: 'vpn.resindev.custom.com/'
 		registryUrl: 'registry.resindev.custom.com/'
 		imageMakerUrl: 'https://img.resindev.custom.com/'
+		deltaUrl: 'https://delta.resindev.custom.com/'
 		dashboardUrl: 'https://dashboard.resindev.custom.com/'
 		dataDirectory: '/opt'
 		cacheDirectory: path.join('/opt', 'cache')
