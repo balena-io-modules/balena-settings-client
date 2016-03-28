@@ -15,50 +15,7 @@ limitations under the License.
 ###
 
 _ = require('lodash')
-os = require('os')
 url = require('url')
-path = require('path')
-
-###*
-# @summary Add hidden prefix to path
-# @function
-# @protected
-#
-# @description
-# This function adds `_` on Windows and '.' in UNIX based operating systems.
-#
-# @param {String} filePath - file path
-# @returns {String} hidden file path
-#
-# @throws Will throw if no path.
-#
-# @example
-# console.log(utils.addHiddenPathPrefix('foo'))
-# > _path // On Windows
-# > .path // On UNIX
-#
-# @example
-# console.log(utils.addHiddenPathPrefix('/foo/bar/baz'))
-# > /foo/bar/.baz
-#
-# @example
-# console.log(utils.addHiddenPathPrefix('C:\\foo\\bar\\baz'))
-# > C:\\foo\\bar\\_baz
-###
-exports.addHiddenPathPrefix = (filePath) ->
-	filePath = filePath?.trim()
-
-	if _.isEmpty(filePath)
-		throw new Error('Missing path')
-
-	if os.platform() is 'win32'
-		delimiter = '_'
-	else
-		delimiter = '.'
-
-	dirname = path.dirname(filePath)
-	basename = path.basename(filePath)
-	return path.join(dirname, "#{delimiter}#{basename}")
 
 ###*
 # @summary Merge objects into one

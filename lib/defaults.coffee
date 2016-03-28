@@ -16,7 +16,7 @@ limitations under the License.
 
 path = require('path')
 userHome = require('home-or-tmp')
-utils = require('./utils')
+hidepath = require('hidepath')
 
 ###*
 # @summary Default settings
@@ -77,7 +77,7 @@ module.exports =
 	# @property {String} dataDirectory - data directory path
 	# @memberof defaults
 	###
-	dataDirectory: path.join(userHome, utils.addHiddenPathPrefix('resin'))
+	dataDirectory: path.join(userHome, hidepath('resin'))
 
 	###*
 	# @property {String} projectsDirectory - projects directory path
