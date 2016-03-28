@@ -16,7 +16,7 @@ limitations under the License.
 
 path = require('path')
 userHome = require('home-or-tmp')
-utils = require('./utils')
+hidepath = require('hidepath')
 
 ###*
 # @summary Configuration settings
@@ -36,7 +36,7 @@ module.exports =
 		# @property {String} user - path to user config
 		# @memberof paths
 		###
-		user: path.join(userHome, utils.addHiddenPathPrefix('resinrc.yml'))
+		user: path.join(userHome, hidepath('resinrc.yml'))
 
 		###*
 		# @property {String} project - path to project config
