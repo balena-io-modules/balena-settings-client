@@ -37,14 +37,14 @@ This module attempts to retrieve configuration from the following places:
 
 - Default settings.
 - `$HOME/.resinrc.yml`.
-- `$PWD/.resinrc.yml`.
+- `$PWD/resinrc.yml`.
 - Environment variables matching `RESINRC_<SETTING_NAME>`.
 
 **Windows:**
 
 - Default settings.
 - `%UserProfile%\_resinrc.yml`.
-- `%cd%\_resinrc.yml`.
+- `%cd%\resinrc.yml`.
 - Environment variables matching `RESINRC_<SETTING_NAME>`.
 
 The values from all locations are merged together, with sources listed below taking precedence.
