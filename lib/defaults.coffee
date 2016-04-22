@@ -74,6 +74,15 @@ module.exports =
 		return "https://dashboard.#{@resinUrl}"
 
 	###*
+	# @property {Function} proxyUrl - Resin.io Proxy url
+	# @memberof defaults
+	###
+	proxyUrl: ->
+		if @resinUrl is 'resin.io'
+			return 'resindevice.io'
+		return "devices.#{@resinUrl}"
+
+	###*
 	# @property {String} dataDirectory - data directory path
 	# @memberof defaults
 	###

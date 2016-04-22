@@ -14,13 +14,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
  */
-var path, userHome, utils;
+var hidepath, path, userHome;
 
 path = require('path');
 
 userHome = require('home-or-tmp');
 
-utils = require('./utils');
+hidepath = require('hidepath');
 
 
 /**
@@ -86,10 +86,21 @@ module.exports = {
   },
 
   /**
+  	 * @property {Function} proxyUrl - Resin.io Proxy url
+  	 * @memberof defaults
+   */
+  proxyUrl: function() {
+    if (this.resinUrl === 'resin.io') {
+      return 'resindevice.io';
+    }
+    return "devices." + this.resinUrl;
+  },
+
+  /**
   	 * @property {String} dataDirectory - data directory path
   	 * @memberof defaults
    */
-  dataDirectory: path.join(userHome, utils.addHiddenPathPrefix('resin')),
+  dataDirectory: path.join(userHome, hidepath('resin')),
 
   /**
   	 * @property {String} projectsDirectory - projects directory path

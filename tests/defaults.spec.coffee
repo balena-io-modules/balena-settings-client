@@ -90,6 +90,18 @@ describe 'Defaults:', ->
 			setting = utils.evaluateSetting(defaults, 'dashboardUrl')
 			m.chai.expect(url.parse(setting).protocol).to.equal('https:')
 
+	describe '.proxyUrl', ->
+
+		it 'should be a valid url', ->
+			setting = utils.evaluateSetting(defaults, 'proxyUrl')
+			m.chai.expect ->
+				url.parse(setting)
+			.to.not.throw(Error)
+
+		it 'should not contain a protocol', ->
+			setting = utils.evaluateSetting(defaults, 'proxyUrl')
+			m.chai.expect(url.parse(setting).protocol).to.not.exist
+
 	describe '.dataDirectory', ->
 
 		it 'should be an absolute path', ->
