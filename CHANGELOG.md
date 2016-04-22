@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.5.0] - 2016-04-22
+
+- Add `proxyUrl` setting.
+
 ## [3.4.2] - 2016-02-03
 
 - Add `deltaUrl` setting.
@@ -118,6 +122,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Default `remoteUrl` to `api.resin.io`.
 
+[3.5.0]: https://github.com/resin-io/resin-settings-client/compare/v3.4.2...v3.5.0
 [3.4.2]: https://github.com/resin-io/resin-settings-client/compare/v3.4.1...v3.4.2
 [3.4.1]: https://github.com/resin-io/resin-settings-client/compare/v3.4.0...v3.4.1
 [3.4.0]: https://github.com/resin-io/resin-settings-client/compare/v3.3.1...v3.4.0
