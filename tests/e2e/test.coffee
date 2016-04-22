@@ -32,12 +32,14 @@ wary.it 'should override defaults given a user configuration that points to stag
 		dashboardUrl: getSetting('dashboardUrl')
 		vpnUrl: getSetting('vpnUrl')
 		registryUrl: getSetting('registryUrl')
+		proxyUrl: getSetting('proxyUrl')
 	.then (settings) ->
 		m.chai.expect(settings.resinUrl).to.equal('resinstaging.io/')
 		m.chai.expect(settings.apiUrl).to.equal('https://api.resinstaging.io/')
 		m.chai.expect(settings.dashboardUrl).to.equal('https://dashboard.resinstaging.io/')
 		m.chai.expect(settings.vpnUrl).to.equal('vpn.resinstaging.io/')
 		m.chai.expect(settings.registryUrl).to.equal('registry.resinstaging.io/')
+		m.chai.expect(settings.proxyUrl).to.equal('devices.resinstaging.io/')
 
 wary.it 'should give precedence to project configuration', {}, ->
 	fs.writeFileSync config.paths.user, '''
@@ -52,12 +54,14 @@ wary.it 'should give precedence to project configuration', {}, ->
 		dashboardUrl: getSetting('dashboardUrl')
 		vpnUrl: getSetting('vpnUrl')
 		registryUrl: getSetting('registryUrl')
+		proxyUrl: getSetting('proxyUrl')
 	.then (settings) ->
 		m.chai.expect(settings.resinUrl).to.equal('resin.custom.com/')
 		m.chai.expect(settings.apiUrl).to.equal('https://api.resin.custom.com/')
 		m.chai.expect(settings.dashboardUrl).to.equal('https://dashboard.resin.custom.com/')
 		m.chai.expect(settings.vpnUrl).to.equal('vpn.resin.custom.com/')
 		m.chai.expect(settings.registryUrl).to.equal('registry.resin.custom.com/')
+		m.chai.expect(settings.proxyUrl).to.equal('devices.resin.custom.com/')
 
 wary.it 'should give predecende to environment variable configuration', {}, ->
 	fs.writeFileSync config.paths.user, '''
@@ -80,6 +84,7 @@ wary.it 'should be able to return all settings', {}, ->
 		imageMakerUrl: 'https://img.resindev.custom.com/'
 		deltaUrl: 'https://delta.resindev.custom.com/'
 		dashboardUrl: 'https://dashboard.resindev.custom.com/'
+		proxyUrl: 'devices.resindev.custom.com/'
 		dataDirectory: '/opt'
 		cacheDirectory: path.join('/opt', 'cache')
 		projectsDirectory: '/usr/src/projects'

@@ -14,59 +14,11 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
  */
-var os, path, url, _;
+var url, _;
 
 _ = require('lodash');
 
-os = require('os');
-
 url = require('url');
-
-path = require('path');
-
-
-/**
- * @summary Add hidden prefix to path
- * @function
- * @protected
- *
- * @description
- * This function adds `_` on Windows and '.' in UNIX based operating systems.
- *
- * @param {String} filePath - file path
- * @returns {String} hidden file path
- *
- * @throws Will throw if no path.
- *
- * @example
- * console.log(utils.addHiddenPathPrefix('foo'))
- * > _path // On Windows
- * > .path // On UNIX
- *
- * @example
- * console.log(utils.addHiddenPathPrefix('/foo/bar/baz'))
- * > /foo/bar/.baz
- *
- * @example
- * console.log(utils.addHiddenPathPrefix('C:\\foo\\bar\\baz'))
- * > C:\\foo\\bar\\_baz
- */
-
-exports.addHiddenPathPrefix = function(filePath) {
-  var basename, delimiter, dirname;
-  filePath = filePath != null ? filePath.trim() : void 0;
-  if (_.isEmpty(filePath)) {
-    throw new Error('Missing path');
-  }
-  if (os.platform() === 'win32') {
-    delimiter = '_';
-  } else {
-    delimiter = '.';
-  }
-  dirname = path.dirname(filePath);
-  basename = path.basename(filePath);
-  return path.join(dirname, "" + delimiter + basename);
-};
 
 
 /**
