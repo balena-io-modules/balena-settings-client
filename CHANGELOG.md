@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.5.1] - 2016-09-08
+
 - Make the settings lazy-loaded when they are actually required.
 
 ## [3.5.0] - 2016-04-22
@@ -124,6 +126,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Default `remoteUrl` to `api.resin.io`.
 
+[3.5.1]: https://github.com/resin-io-modules/resin-settings-client/compare/v3.5.0...v3.5.1
 [3.5.0]: https://github.com/resin-io-modules/resin-settings-client/compare/v3.4.2...v3.5.0
 [3.4.2]: https://github.com/resin-io-modules/resin-settings-client/compare/v3.4.1...v3.4.2
 [3.4.1]: https://github.com/resin-io-modules/resin-settings-client/compare/v3.4.0...v3.4.1
