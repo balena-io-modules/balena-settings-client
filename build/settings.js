@@ -59,7 +59,7 @@ limitations under the License.
  *
  * @module settings
  */
-var config, defaults, environment, fs, readConfigFile, settings, utils, yaml, _;
+var config, defaults, environment, fs, getSettings, readConfigFile, utils, yaml, _;
 
 _ = require('lodash');
 
@@ -90,7 +90,9 @@ readConfigFile = function(file) {
   }
 };
 
-settings = utils.mergeObjects.apply(null, [defaults, readConfigFile(config.paths.user), readConfigFile(config.paths.project), environment.parse(process.env)]);
+getSettings = _.memoize(function() {
+  return utils.mergeObjects.apply(null, [defaults, readConfigFile(config.paths.user), readConfigFile(config.paths.project), environment.parse(process.env)]);
+});
 
 
 /**
@@ -106,6 +108,8 @@ settings = utils.mergeObjects.apply(null, [defaults, readConfigFile(config.paths
  */
 
 exports.get = function(name) {
+  var settings;
+  settings = getSettings();
   return utils.evaluateSetting(settings, name);
 };
 
@@ -122,6 +126,8 @@ exports.get = function(name) {
  */
 
 exports.getAll = function() {
+  var settings;
+  settings = getSettings();
   return _.mapValues(settings, function(setting, name) {
     return exports.get(name);
   });

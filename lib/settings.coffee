@@ -70,22 +70,21 @@ config = require('./config')
 
 readConfigFile = (file) ->
 	try
-
 		# We read the config files synchronously since
 		# other modules rely on Resin Settings Client
 		# to be ready for usage as soon as possible.
 		return yaml.parse(fs.readFileSync(file, encoding: 'utf8'))
-
 	catch error
 		return {} if error.code is 'ENOENT'
 		throw error
 
-settings = utils.mergeObjects.apply null, [
-	defaults
-	readConfigFile(config.paths.user)
-	readConfigFile(config.paths.project)
-	environment.parse(process.env)
-]
+getSettings = _.memoize ->
+	utils.mergeObjects.apply null, [
+		defaults
+		readConfigFile(config.paths.user)
+		readConfigFile(config.paths.project)
+		environment.parse(process.env)
+	]
 
 ###*
 # @summary Get a setting
@@ -99,6 +98,7 @@ settings = utils.mergeObjects.apply null, [
 # settings.get('dataDirectory')
 ###
 exports.get = (name) ->
+	settings = getSettings()
 	return utils.evaluateSetting(settings, name)
 
 ###*
@@ -112,5 +112,6 @@ exports.get = (name) ->
 # settings.getAll()
 ###
 exports.getAll = ->
+	settings = getSettings()
 	return _.mapValues settings, (setting, name) ->
 		return exports.get(name)
