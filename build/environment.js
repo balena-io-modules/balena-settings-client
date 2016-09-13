@@ -83,5 +83,5 @@ exports.isSettingVariable = function(variable) {
  */
 
 exports.parse = function(environment) {
-  return _.chain(environment).pick(_.rearg(exports.isSettingVariable, 1)).mapKeys(_.rearg(exports.getSettingName, 1)).value();
+  return _.chain(environment).pickBy(_.rearg(exports.isSettingVariable, 1)).mapKeys(_.rearg(exports.getSettingName, 1)).value();
 };

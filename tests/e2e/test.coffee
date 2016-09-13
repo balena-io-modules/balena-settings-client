@@ -3,24 +3,26 @@ _ = require('lodash')
 path = require('path')
 fs = require('fs')
 Promise = require('bluebird')
-child_process = Promise.promisifyAll(require('child_process'))
+execAsync = Promise.promisify(require('child_process').exec, { multiArgs: true })
 wary = require('wary')
 config = require('../../lib/config')
 environment = require('../../lib/environment')
 
+handleExecResult = (stdout, stderr) ->
+	if not _.isEmpty(stderr)
+		throw new Error(stderr)
+	return stdout.replace(/\n$/, '')
+
 getSetting = (setting) ->
 	script = path.join(__dirname, 'get.coffee')
-	child_process.execAsync("coffee #{script} #{setting}", encoding: 'utf8').spread (stdout, stderr) ->
-		if not _.isEmpty(stderr)
-			throw new Error(stderr)
-		return stdout.replace(/\n$/, '')
+	execAsync("coffee #{script} #{setting}", encoding: 'utf8')
+	.spread(handleExecResult)
 
 getAll = ->
 	script = path.join(__dirname, 'get-all.coffee')
-	child_process.execAsync("coffee #{script}", encoding: 'utf8').spread (stdout, stderr) ->
-		if not _.isEmpty(stderr)
-			throw new Error(stderr)
-		return JSON.parse(stdout.replace(/\n$/, ''))
+	execAsync("coffee #{script}", encoding: 'utf8')
+	.spread(handleExecResult)
+	.then(JSON.parse)
 
 wary.it 'should override defaults given a user configuration that points to staging', {}, ->
 	fs.writeFileSync config.paths.user, '''
@@ -93,7 +95,7 @@ wary.it 'should be able to return all settings', {}, ->
 		apiKeyVariable: 'RESIN_API_KEY'
 
 wary.run().catch (error) ->
-	console.error("ERROR: #{error.message}")
+	console.error("ERROR: #{error.message}", error.stack)
 	process.exit(1)
 .finally ->
 	try
