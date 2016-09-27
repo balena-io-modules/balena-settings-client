@@ -76,7 +76,7 @@ utils = require('./utils');
 config = require('./config');
 
 readConfigFile = function(file) {
-  var error, error1;
+  var error;
   try {
     return yaml.parse(fs.readFileSync(file, {
       encoding: 'utf8'
