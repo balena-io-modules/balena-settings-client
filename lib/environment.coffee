@@ -73,6 +73,6 @@ exports.isSettingVariable = (variable) ->
 ###
 exports.parse = (environment) ->
 	return _.chain(environment)
-		.pick(_.rearg(exports.isSettingVariable, 1))
+		.pickBy(_.rearg(exports.isSettingVariable, 1))
 		.mapKeys(_.rearg(exports.getSettingName, 1))
 		.value()

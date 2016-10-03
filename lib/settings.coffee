@@ -78,13 +78,14 @@ readConfigFile = (file) ->
 		return {} if error.code is 'ENOENT'
 		throw error
 
-getSettings = _.memoize ->
-	utils.mergeObjects.apply null, [
-		defaults
-		readConfigFile(config.paths.user)
-		readConfigFile(config.paths.project)
+getSettings = _.once ->
+	utils.mergeObjects(
+		{},
+		defaults,
+		readConfigFile(config.paths.user),
+		readConfigFile(config.paths.project),
 		environment.parse(process.env)
-	]
+	)
 
 ###*
 # @summary Get a setting

@@ -59,7 +59,7 @@ limitations under the License.
  *
  * @module settings
  */
-var config, defaults, environment, fs, getSettings, readConfigFile, utils, yaml, _;
+var _, config, defaults, environment, fs, getSettings, readConfigFile, utils, yaml;
 
 _ = require('lodash');
 
@@ -81,8 +81,8 @@ readConfigFile = function(file) {
     return yaml.parse(fs.readFileSync(file, {
       encoding: 'utf8'
     }));
-  } catch (_error) {
-    error = _error;
+  } catch (error1) {
+    error = error1;
     if (error.code === 'ENOENT') {
       return {};
     }
@@ -90,8 +90,8 @@ readConfigFile = function(file) {
   }
 };
 
-getSettings = _.memoize(function() {
-  return utils.mergeObjects.apply(null, [defaults, readConfigFile(config.paths.user), readConfigFile(config.paths.project), environment.parse(process.env)]);
+getSettings = _.once(function() {
+  return utils.mergeObjects({}, defaults, readConfigFile(config.paths.user), readConfigFile(config.paths.project), environment.parse(process.env));
 });
 
 

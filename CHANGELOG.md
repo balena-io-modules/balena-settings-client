@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+- Update to `lodash` v4
+
 ## [3.5.1] - 2016-09-08
 
 - Make the settings lazy-loaded when they are actually required.
