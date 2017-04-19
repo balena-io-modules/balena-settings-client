@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.6.0] - 2017-04-19
+
 - Add bin directory to settings
 
 ## [3.5.2] - 2016-10-04
@@ -132,6 +134,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Default `remoteUrl` to `api.resin.io`.
 
+[3.6.0]: https://github.com/resin-io-modules/resin-settings-client/compare/v3.5.2...v3.6.0
+[3.5.2]: https://github.com/resin-io-modules/resin-settings-client/compare/v3.5.1...v3.5.2
 [3.5.1]: https://github.com/resin-io-modules/resin-settings-client/compare/v3.5.0...v3.5.1
 [3.5.0]: https://github.com/resin-io-modules/resin-settings-client/compare/v3.4.2...v3.5.0
 [3.4.2]: https://github.com/resin-io-modules/resin-settings-client/compare/v3.4.1...v3.4.2
