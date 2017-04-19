@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+- Add bin directory to settings
+
 ## [3.5.2] - 2016-10-04
 
 - Update to `lodash` v4
