@@ -117,6 +117,14 @@ module.exports = {
   },
 
   /**
+  	 * @property {Function} binDirectory - binary directory path
+  	 * @memberof defaults
+   */
+  binDirectory: function() {
+    return path.join(this.dataDirectory, 'bin');
+  },
+
+  /**
   	 * @property {Number} imageCacheTime - image cache time
   	 * @memberof defaults
    */

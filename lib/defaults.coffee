@@ -102,6 +102,13 @@ module.exports =
 		return path.join(@dataDirectory, 'cache')
 
 	###*
+	# @property {Function} binDirectory - binary directory path
+	# @memberof defaults
+	###
+	binDirectory: ->
+		return path.join(@dataDirectory, 'bin')
+
+	###*
 	# @property {Number} imageCacheTime - image cache time
 	# @memberof defaults
 	###

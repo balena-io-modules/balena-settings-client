@@ -89,6 +89,7 @@ wary.it 'should be able to return all settings', {}, ->
 		proxyUrl: 'devices.resindev.custom.com/'
 		dataDirectory: '/opt'
 		cacheDirectory: path.join('/opt', 'cache')
+		binDirectory: path.join('/opt', 'bin')
 		projectsDirectory: '/usr/src/projects'
 		imageCacheTime: 604800000
 		tokenRefreshInterval: 3600000
