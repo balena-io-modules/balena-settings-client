@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.6.1] - 2017-04-22
+
+- Better error message for malformed YAML
+
+
 ## [3.6.0] - 2017-04-19
 
 - Add bin directory to settings
@@ -134,6 +139,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Default `remoteUrl` to `api.resin.io`.
 
+[3.6.1]: https://github.com/resin-io-modules/resin-settings-client/compare/v3.6.0...v3.6.1
 [3.6.0]: https://github.com/resin-io-modules/resin-settings-client/compare/v3.5.2...v3.6.0
 [3.5.2]: https://github.com/resin-io-modules/resin-settings-client/compare/v3.5.1...v3.5.2
 [3.5.1]: https://github.com/resin-io-modules/resin-settings-client/compare/v3.5.0...v3.5.1
