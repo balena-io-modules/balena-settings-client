@@ -76,17 +76,24 @@ utils = require('./utils');
 config = require('./config');
 
 readConfigFile = function(file) {
-  var error;
+  var error, fileContents;
+  fileContents = null;
   try {
-    return yaml.parse(fs.readFileSync(file, {
+    fileContents = fs.readFileSync(file, {
       encoding: 'utf8'
-    }));
+    });
   } catch (error1) {
     error = error1;
     if (error.code === 'ENOENT') {
       return {};
     }
     throw error;
+  }
+  try {
+    return yaml.parse(fileContents);
+  } catch (error1) {
+    error = error1;
+    throw new Error("Error parsing config file " + file + ": " + error.message);
   }
 };
 

@@ -95,6 +95,12 @@ wary.it 'should be able to return all settings', {}, ->
 		tokenRefreshInterval: 3600000
 		apiKeyVariable: 'RESIN_API_KEY'
 
+wary.it 'should be rejected if the config file is malformed', {}, ->
+	fs.writeFileSync config.paths.project, '''
+		resinUrl=resin.custom.com/
+	'''
+	m.chai.expect(getAll()).to.be.rejectedWith('Error parsing config file')
+
 wary.run().catch (error) ->
 	console.error("ERROR: #{error.message}", error.stack)
 	process.exit(1)
