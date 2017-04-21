@@ -33,7 +33,7 @@ jsYaml = require('js-yaml')
 # > bar
 ###
 exports.parse = (string) ->
-	result =  jsYaml.safeLoad(string)
+	result = jsYaml.safeLoad(string)
 	if _.isString(result)
 		throw new Error("Invalid YAML: #{string}")
 	return result

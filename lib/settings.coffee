@@ -69,14 +69,19 @@ utils = require('./utils')
 config = require('./config')
 
 readConfigFile = (file) ->
+	fileContents = null
 	try
 		# We read the config files synchronously since
 		# other modules rely on Resin Settings Client
 		# to be ready for usage as soon as possible.
-		return yaml.parse(fs.readFileSync(file, encoding: 'utf8'))
+		fileContents = fs.readFileSync(file, encoding: 'utf8')
 	catch error
 		return {} if error.code is 'ENOENT'
 		throw error
+	try
+		return yaml.parse(fileContents)
+	catch error
+		throw new Error("Error parsing config file #{file}: #{error.message}")
 
 getSettings = _.once ->
 	utils.mergeObjects(
