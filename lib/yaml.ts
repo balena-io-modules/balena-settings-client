@@ -1,4 +1,3 @@
-"use strict";
 /*
 Copyright 2016-17 Resin.io
 
@@ -14,9 +13,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-Object.defineProperty(exports, "__esModule", { value: true });
-var jsYaml = require("js-yaml");
-var _ = require("lodash");
+
+import * as jsYaml from 'js-yaml';
+import * as _ from 'lodash';
+
 /**
  * @summary Parse a YAML string
  * @function
@@ -32,11 +32,10 @@ var _ = require("lodash");
  * console.log(object.foo)
  * > bar
  */
-exports.parse = function (yaml) {
-    var result = jsYaml.safeLoad(yaml);
-    if (_.isString(result)) {
-        throw new Error("Invalid YAML: " + yaml);
-    }
-    return result;
+export const parse = (yaml: string): object => {
+	const result = jsYaml.safeLoad(yaml);
+	if (_.isString(result)) {
+		throw new Error(`Invalid YAML: ${yaml}`);
+	}
+	return result;
 };
-//# sourceMappingURL=yaml.js.map

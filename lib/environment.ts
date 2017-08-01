@@ -1,4 +1,3 @@
-"use strict";
 /*
 Copyright 2016-17 Resin.io
 
@@ -14,8 +13,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-Object.defineProperty(exports, "__esModule", { value: true });
-var _ = require("lodash");
+
+import * as _ from 'lodash';
+
 /**
  * @summary Get setting name from environment variable
  * @function
@@ -30,13 +30,14 @@ var _ = require("lodash");
  * console.log(environment.getSettingName('RESINRC_HELLO_WORLD'))
  * > helloWorld
  */
-exports.getSettingName = function (variable) {
-    variable = variable != null ? variable.trim() : undefined;
-    if (!variable) {
-        throw new Error('Missing variable name');
-    }
-    return _.camelCase(variable.replace(/^RESINRC_/i, ''));
+export const getSettingName = (variable?: string) => {
+	variable = variable != null ? variable.trim() : undefined;
+	if (!variable) {
+		throw new Error('Missing variable name');
+	}
+	return _.camelCase(variable.replace(/^RESINRC_/i, ''));
 };
+
 /**
  * @summary Determine if a variable is a configuration variable
  * @function
@@ -53,9 +54,9 @@ exports.getSettingName = function (variable) {
  * console.log(environment.isSettingVariable('EDITOR'))
  * > false
  */
-exports.isSettingVariable = function (variable) {
-    return /^RESINRC_(.)+/i.test(variable);
-};
+export const isSettingVariable = (variable: string) =>
+	/^RESINRC_(.)+/i.test(variable);
+
 /**
  * @summary Parse environment variables
  * @function
@@ -73,10 +74,8 @@ exports.isSettingVariable = function (variable) {
  * > 	resinUrl: 'https://resin.io'
  * > }
  */
-exports.parse = function (environment) {
-    return _.chain(environment)
-        .pickBy(function (v, k) { return exports.isSettingVariable(k) && !!v; })
-        .mapKeys(function (_v, k) { return exports.getSettingName(k); })
-        .value();
-};
-//# sourceMappingURL=environment.js.map
+export const parse = (environment: { [k: string]: string | undefined }) =>
+	_.chain(environment)
+		.pickBy((v: string | undefined, k: string) => isSettingVariable(k) && !!v)
+		.mapKeys((_v: string, k: string) => getSettingName(k))
+		.value();
