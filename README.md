@@ -80,10 +80,10 @@ That specific environment will have the following configuration:
 <a name="module_settings.get"></a>
 
 ### settings.get(name) ⇒ <code>\*</code>
-**Kind**: static method of <code>[settings](#module_settings)</code>  
+**Kind**: static method of [<code>settings</code>](#module_settings)  
 **Summary**: Get a setting  
 **Returns**: <code>\*</code> - setting value  
-**Access:** public  
+**Access**: public  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -96,10 +96,10 @@ settings.get('dataDirectory')
 <a name="module_settings.getAll"></a>
 
 ### settings.getAll() ⇒ <code>Object</code>
-**Kind**: static method of <code>[settings](#module_settings)</code>  
+**Kind**: static method of [<code>settings</code>](#module_settings)  
 **Summary**: Get all settings  
 **Returns**: <code>Object</code> - all settings  
-**Access:** public  
+**Access**: public  
 **Example**  
 ```js
 settings.getAll()

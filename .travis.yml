@@ -1,5 +1,10 @@
 language: node_js
+before_install:
+- npm -g install npm@4
 node_js:
+  - "node"
   - "6"
   - "4"
-  - "0.12"
+
+notifications:
+  email: false

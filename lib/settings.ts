@@ -1,4 +1,3 @@
-"use strict";
 /*
 Copyright 2016-17 Resin.io
 
@@ -14,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-Object.defineProperty(exports, "__esModule", { value: true });
+
 /**
  * This module attempts to retrieve configuration from the following places:
  *
@@ -59,37 +58,48 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *
  * @module settings
  */
-var fs = require("fs");
-var _ = require("lodash");
-var config = require("./config");
-var defaults = require("./defaults");
-var environment = require("./environment");
-var utils = require("./utils");
-var yaml = require("./yaml");
-var readConfigFile = function (file) {
-    var fileContents = null;
-    try {
-        // We read the config files synchronously since
-        // other modules rely on Resin Settings Client
-        // to be ready for usage as soon as possible.
-        fileContents = fs.readFileSync(file, { encoding: 'utf8' });
-    }
-    catch (error) {
-        if (error.code === 'ENOENT') {
-            return {};
-        }
-        throw error;
-    }
-    try {
-        return yaml.parse(fileContents);
-    }
-    catch (error) {
-        throw new Error("Error parsing config file " + file + ": " + error.message);
-    }
+
+import * as fs from 'fs';
+import * as _ from 'lodash';
+
+import config = require('./config');
+import defaults = require('./defaults');
+import * as environment from './environment';
+import * as utils from './utils';
+import * as yaml from './yaml';
+
+const readConfigFile = (file: string): object => {
+	let fileContents = null;
+
+	try {
+		// We read the config files synchronously since
+		// other modules rely on Resin Settings Client
+		// to be ready for usage as soon as possible.
+		fileContents = fs.readFileSync(file, { encoding: 'utf8' });
+	} catch (error) {
+		if (error.code === 'ENOENT') {
+			return {};
+		}
+		throw error;
+	}
+
+	try {
+		return yaml.parse(fileContents);
+	} catch (error) {
+		throw new Error(`Error parsing config file ${file}: ${error.message}`);
+	}
 };
-var getSettings = _.once(function () {
-    return utils.mergeObjects({}, defaults, readConfigFile(config.paths.user), readConfigFile(config.paths.project), environment.parse(process.env));
-});
+
+const getSettings = _.once((): { [k: string]: string } =>
+	utils.mergeObjects(
+		{},
+		defaults,
+		readConfigFile(config.paths.user),
+		readConfigFile(config.paths.project),
+		environment.parse(process.env)
+	)
+);
+
 /**
  * @summary Get a setting
  * @function
@@ -101,10 +111,11 @@ var getSettings = _.once(function () {
  * @example
  * settings.get('dataDirectory')
  */
-exports.get = function (name) {
-    var settings = getSettings();
-    return utils.evaluateSetting(settings, name);
+export const get = <T>(name: string): T => {
+	const settings = getSettings();
+	return utils.evaluateSetting<T>(settings, name);
 };
+
 /**
  * @summary Get all settings
  * @function
@@ -115,8 +126,7 @@ exports.get = function (name) {
  * @example
  * settings.getAll()
  */
-exports.getAll = function () {
-    var settings = getSettings();
-    return _.mapValues(settings, function (_setting, name) { return exports.get(name); });
+export const getAll = () => {
+	const settings = getSettings();
+	return _.mapValues(settings, (_setting, name) => get(name));
 };
-//# sourceMappingURL=settings.js.map

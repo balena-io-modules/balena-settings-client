@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+
+- Converted sources to TypeScript.
+
 ## [3.6.1] - 2017-04-22
 
 - Better error message for malformed YAML
