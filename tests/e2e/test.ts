@@ -53,6 +53,7 @@ wary.it(
 			dashboardUrl: getSetting('dashboardUrl'),
 			vpnUrl: getSetting('vpnUrl'),
 			registryUrl: getSetting('registryUrl'),
+			registry2Url: getSetting('registry2Url'),
 			proxyUrl: getSetting('proxyUrl')
 		}).then(settings => {
 			m.chai.expect(settings.resinUrl).to.equal('resinstaging.io/');
@@ -62,6 +63,9 @@ wary.it(
 				.to.equal('https://dashboard.resinstaging.io/');
 			m.chai.expect(settings.vpnUrl).to.equal('vpn.resinstaging.io/');
 			m.chai.expect(settings.registryUrl).to.equal('registry.resinstaging.io/');
+			m.chai
+				.expect(settings.registry2Url)
+				.to.equal('registry2.resinstaging.io/');
 			m.chai.expect(settings.proxyUrl).to.equal('devices.resinstaging.io/');
 		});
 	}
@@ -86,6 +90,7 @@ wary.it('should give precedence to project configuration', {}, () => {
 		dashboardUrl: getSetting('dashboardUrl'),
 		vpnUrl: getSetting('vpnUrl'),
 		registryUrl: getSetting('registryUrl'),
+		registry2Url: getSetting('registry2Url'),
 		proxyUrl: getSetting('proxyUrl')
 	}).then(settings => {
 		m.chai.expect(settings.resinUrl).to.equal('resin.custom.com/');
@@ -95,6 +100,9 @@ wary.it('should give precedence to project configuration', {}, () => {
 			.to.equal('https://dashboard.resin.custom.com/');
 		m.chai.expect(settings.vpnUrl).to.equal('vpn.resin.custom.com/');
 		m.chai.expect(settings.registryUrl).to.equal('registry.resin.custom.com/');
+		m.chai
+			.expect(settings.registry2Url)
+			.to.equal('registry2.resin.custom.com/');
 		m.chai.expect(settings.proxyUrl).to.equal('devices.resin.custom.com/');
 	});
 });
@@ -132,6 +140,7 @@ wary.it('should be able to return all settings', {}, () => {
 		apiUrl: 'https://api.resindev.custom.com/',
 		vpnUrl: 'vpn.resindev.custom.com/',
 		registryUrl: 'registry.resindev.custom.com/',
+		registry2Url: 'registry2.resindev.custom.com/',
 		imageMakerUrl: 'https://img.resindev.custom.com/',
 		deltaUrl: 'https://delta.resindev.custom.com/',
 		dashboardUrl: 'https://dashboard.resindev.custom.com/',

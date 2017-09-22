@@ -56,6 +56,18 @@ describe('Defaults:', () => {
 		});
 	});
 
+	describe('.registry2Url', () => {
+		it('should be a valid url', () => {
+			const setting = utils.evaluateSetting<string>(defaults, 'registry2Url');
+			m.chai.expect(() => url.parse(setting)).to.not.throw(Error);
+		});
+
+		it('should not contain a protocol', () => {
+			const setting = utils.evaluateSetting<string>(defaults, 'registry2Url');
+			m.chai.expect(url.parse(setting).protocol).to.not.exist;
+		});
+	});
+
 	describe('.imageMakerUrl', () => {
 		it('should be a valid url', () => {
 			const setting = utils.evaluateSetting<string>(defaults, 'imageMakerUrl');

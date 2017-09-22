@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [3.8.0] - 2017-09-25
+
+- Add `registry2Url` setting.
+
 ## [3.7.0] - 2017-08-31
 
 - Converted sources to TypeScript.
