@@ -45,6 +45,13 @@ module.exports = {
         return "registry." + this.resinUrl;
     },
     /**
+     * @property {Function} registry2Url - Resin.io Registry 2 url
+     * @memberof defaults
+     */
+    registry2Url: function () {
+        return "registry2." + this.resinUrl;
+    },
+    /**
      * @property {Function} imageMakerUrl - Resin.io Image Maker url
      * @memberof defaults
      */
