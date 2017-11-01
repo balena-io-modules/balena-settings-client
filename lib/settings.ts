@@ -90,7 +90,7 @@ const readConfigFile = (file: string): object => {
 	}
 };
 
-const getSettings = _.once((): { [k: string]: string } =>
+const getSettings = _.once((): { [k: string]: string | undefined } =>
 	utils.mergeObjects(
 		{},
 		defaults,

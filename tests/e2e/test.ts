@@ -8,7 +8,6 @@ import * as path from 'path';
 import * as wary from 'wary';
 
 import config = require('../../lib/config');
-import * as environment from '../../lib/environment';
 
 const execAsync = Promise.promisify<
 	[string, string],
@@ -178,7 +177,6 @@ wary
 		try {
 			fs.unlinkSync(config.paths.user);
 			fs.unlinkSync(config.paths.project);
-			process.env = _.omit(process.env, environment.isSettingVariable);
 		} catch (error) {
 			// do nothing
 		}
