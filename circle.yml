@@ -4,6 +4,9 @@ version: 2
 buildSteps: &buildSteps
   - checkout
   - run:
+      name: install-npm-4
+      command: sudo npm install -g npm@4
+  - run:
       name: install-npm
       command: npm install
   - run:
