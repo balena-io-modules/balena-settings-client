@@ -39,6 +39,9 @@ jobs:
       - attach_workspace:
           at: $CIRCLE_WORKING_DIRECTORY
       - run:
+          name: install-npm-4
+          command: sudo npm install -g npm@4
+      - run:
           name: Login to npm
           command: |
             echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
