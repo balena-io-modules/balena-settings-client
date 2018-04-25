@@ -1,6 +1,6 @@
 {
   "name": "resin-settings-client",
-  "version": "3.8.4",
+  "version": "3.8.5",
   "description": "Resin.io client application shared settings",
   "main": "build/settings.js",
   "types": "lib/settings.ts",
@@ -31,12 +31,12 @@
   "author": "Juan Cruz Viotti <juan@resin.io>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@resin.io/types-mochainon": "^2.0.0",
-    "@resin.io/types-wary": "^1.1.1",
-    "@types/bluebird": "^3.5.8",
-    "@types/common-tags": "^1.2.5",
-    "@types/mocha": "^2.2.41",
-    "@types/node": "^8.0.19",
+    "@resin.io/types-mochainon": "2.0.1",
+    "@resin.io/types-wary": "1.1.1",
+    "@types/bluebird": "3.5.20",
+    "@types/common-tags": "1.4.0",
+    "@types/mocha": "2.2.48",
+    "@types/node": "^8.10.10",
     "bluebird": "^3.5.0",
     "common-tags": "^1.4.0",
     "jsdoc-to-markdown": "^3.0.0",
@@ -51,12 +51,12 @@
     "wary": "^1.1.0"
   },
   "dependencies": {
-    "@resin.io/types-hidepath": "^1.0.1",
-    "@resin.io/types-home-or-tmp": "^3.0.0",
-    "@types/js-yaml": "^3.9.0",
-    "@types/lodash": "^4.14.71",
+    "@resin.io/types-hidepath": "1.0.1",
+    "@resin.io/types-home-or-tmp": "3.0.0",
+    "@types/js-yaml": "3.11.1",
+    "@types/lodash": "4.14.108",
     "hidepath": "^1.0.0",
-    "home-or-tmp": "^3.0.0",
+    "home-or-tmp": "^2.0.0",
     "js-yaml": "^3.4.0",
     "lodash": "^4.15.0"
   }

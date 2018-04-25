@@ -9,11 +9,10 @@ import * as wary from 'wary';
 
 import config = require('../../lib/config');
 
-const execAsync = Promise.promisify<
-	[string, string],
-	string,
-	any
->(childProcess.exec, { multiArgs: true });
+const execAsync = Promise.promisify<[string, string], string, any>(
+	childProcess.exec,
+	{ multiArgs: true }
+);
 
 const handleExecResult = (stdout: string, stderr: string) => {
 	if (!_.isEmpty(stderr)) {

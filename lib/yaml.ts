@@ -34,7 +34,7 @@ import * as _ from 'lodash';
  */
 export const parse = (yaml: string): object => {
 	const result = jsYaml.safeLoad(yaml);
-	if (_.isString(result)) {
+	if (_.isString(result) || !result) {
 		throw new Error(`Invalid YAML: ${yaml}`);
 	}
 	return result;
