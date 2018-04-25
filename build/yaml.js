@@ -34,7 +34,7 @@ var _ = require("lodash");
  */
 exports.parse = function (yaml) {
     var result = jsYaml.safeLoad(yaml);
-    if (_.isString(result)) {
+    if (_.isString(result) || !result) {
         throw new Error("Invalid YAML: " + yaml);
     }
     return result;
