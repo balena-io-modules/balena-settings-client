@@ -56,7 +56,7 @@
     "@types/js-yaml": "^3.9.0",
     "@types/lodash": "^4.14.71",
     "hidepath": "^1.0.0",
-    "home-or-tmp": "^3.0.0",
+    "home-or-tmp": "^2.0.0",
     "js-yaml": "^3.4.0",
     "lodash": "^4.15.0"
   }
