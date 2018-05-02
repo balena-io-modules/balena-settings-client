@@ -34,7 +34,7 @@ jobs:
       - image: circleci/node:8
     steps:
       - attach_workspace:
-          at: $CIRCLE_WORKING_DIRECTORY
+          at: .
       - run:
           name: install-npm-4
           command: sudo npm install -g npm@4
