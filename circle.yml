@@ -31,7 +31,7 @@ jobs:
   deploy:
     # For this to work NPM_TOKEN must be set for the account used for publishing
     docker:
-      - image: circleci/node:6
+      - image: circleci/node:8
     steps:
       - attach_workspace:
           at: $CIRCLE_WORKING_DIRECTORY
@@ -45,8 +45,8 @@ jobs:
             npm whoami
       - deploy:
           name: Deploy to npm
-          # Output used for publish is from node 6 build
-          command: cd node-6 && npm publish
+          # Output used for publish is from node 8 build
+          command: cd node-8 && npm publish
 
 workflows:
   version: 2
