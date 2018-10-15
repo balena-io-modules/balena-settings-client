@@ -19,67 +19,69 @@ describe('Environment:', () => {
 				.to.throw('Missing variable name'));
 
 		it('should return the correct setting for a single word variable', () => {
-			const setting = environment.getSettingName('RESINRC_HELLO');
+			const setting = environment.getSettingName('BALENARC_HELLO');
 			m.chai.expect(setting).to.equal('hello');
 		});
 
 		it('should return the correct setting for a double word variable', () => {
-			const setting = environment.getSettingName('RESINRC_HELLO_WORLD');
+			const setting = environment.getSettingName('BALENARC_HELLO_WORLD');
 			m.chai.expect(setting).to.equal('helloWorld');
 		});
 
 		it('should return the correct setting for a triple word variable', () => {
-			const setting = environment.getSettingName('RESINRC_HELLO_WORLD_FOO');
+			const setting = environment.getSettingName('BALENARC_HELLO_WORLD_FOO');
 			m.chai.expect(setting).to.equal('helloWorldFoo');
 		});
 
 		it('should return the correct setting for a double word lowercase variable', () => {
-			const setting = environment.getSettingName('resinrc_hello_world_foo');
+			const setting = environment.getSettingName('balenarc_hello_world_foo');
 			m.chai.expect(setting).to.equal('helloWorldFoo');
 		});
 	});
 
 	describe('.isSettingVariable()', () => {
-		it('should return true if it starts with RESINRC_', () =>
+		it('should return true if it starts with BALENARC_', () =>
 			m.chai
-				.expect(environment.isSettingVariable('RESINRC_HELLO'))
+				.expect(environment.isSettingVariable('BALENARC_HELLO'))
 				.to.equal(true));
 
-		it('should return true if it starts with resinrc_', () =>
+		it('should return true if it starts with balenarc_', () =>
 			m.chai
-				.expect(environment.isSettingVariable('resinrc_hello'))
+				.expect(environment.isSettingVariable('balenarc_hello'))
 				.to.equal(true));
 
-		it('should return false if it starts with RESIN_', () =>
+		it('should return false if it starts with BALENA_', () =>
 			m.chai
-				.expect(environment.isSettingVariable('RESIN_HELLO'))
+				.expect(environment.isSettingVariable('BALENA_HELLO'))
 				.to.equal(false));
 
-		it('should return false if it equals RESINRC_', () =>
-			m.chai.expect(environment.isSettingVariable('RESINRC_')).to.equal(false));
-
-		it('should return false if it equals RESINRC', () =>
-			m.chai.expect(environment.isSettingVariable('RESINRC')).to.equal(false));
-
-		it('should return false if it equals RESIN', () =>
-			m.chai.expect(environment.isSettingVariable('RESIN')).to.equal(false));
-
-		it('should return false if it starts with RESINRC but dont contain an underscore', () =>
+		it('should return false if it equals BALENARC_', () =>
 			m.chai
-				.expect(environment.isSettingVariable('RESINRCHELLO'))
+				.expect(environment.isSettingVariable('BALENARC_'))
+				.to.equal(false));
+
+		it('should return false if it equals BALENARC', () =>
+			m.chai.expect(environment.isSettingVariable('BALENARC')).to.equal(false));
+
+		it('should return false if it equals BALENA', () =>
+			m.chai.expect(environment.isSettingVariable('BALENA')).to.equal(false));
+
+		it('should return false if it starts with BALENARC but dont contain an underscore', () =>
+			m.chai
+				.expect(environment.isSettingVariable('BALENARCHELLO'))
 				.to.equal(false));
 	});
 
 	describe('.parse()', () => {
-		describe('given an environment containing a single RESINRC variable', () => {
+		describe('given an environment containing a single BALENARC variable', () => {
 			it('should parse an empty environment', () => {
 				const result = environment.parse({});
 				m.chai.expect(result).to.deep.equal({});
 			});
 
-			it('should parse an environment with one resin variable', () => {
+			it('should parse an environment with one balena variable', () => {
 				const result = environment.parse({
-					RESINRC_HELLO_WORLD: 'foo'
+					BALENARC_HELLO_WORLD: 'foo'
 				});
 
 				m.chai.expect(result).to.deep.equal({
@@ -87,9 +89,9 @@ describe('Environment:', () => {
 				});
 			});
 
-			it('should parse an environment with one lowercase resin variable', () => {
+			it('should parse an environment with one lowercase balena variable', () => {
 				const result = environment.parse({
-					resinrc_hello_world: 'foo'
+					balenarc_hello_world: 'foo'
 				});
 
 				m.chai.expect(result).to.deep.equal({
@@ -97,10 +99,10 @@ describe('Environment:', () => {
 				});
 			});
 
-			it('should parse an environment with multiple resin variables', () => {
+			it('should parse an environment with multiple balena variables', () => {
 				const result = environment.parse({
-					RESINRC_HELLO_WORLD: 'foo',
-					RESINRC_BAR: 'baz'
+					BALENARC_HELLO_WORLD: 'foo',
+					BALENARC_BAR: 'baz'
 				});
 
 				m.chai.expect(result).to.deep.equal({
@@ -109,11 +111,11 @@ describe('Environment:', () => {
 				});
 			});
 
-			it('should parse an environment with no resin variables', () => {
+			it('should parse an environment with no balena variables', () => {
 				const result = environment.parse({
-					RESIN: 'true',
-					RESINRC: 'true',
-					RESIN_SALUTE: 'Hola!',
+					BALENA: 'true',
+					BALENARC: 'true',
+					BALENA_SALUTE: 'Hola!',
 					EDITOR: 'vim',
 					SHELL: 'zsh'
 				});
@@ -121,9 +123,9 @@ describe('Environment:', () => {
 				m.chai.expect(result).to.deep.equal({});
 			});
 
-			it('should parse an environment with a resin variable and more', () => {
+			it('should parse an environment with a balena variable and more', () => {
 				const result = environment.parse({
-					RESINRC_HELLO: 'world',
+					BALENARC_HELLO: 'world',
 					EDITOR: 'vim',
 					SHELL: 'zsh'
 				});

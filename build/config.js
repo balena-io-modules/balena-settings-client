@@ -1,6 +1,6 @@
 "use strict";
 /*
-Copyright 2016-17 Resin.io
+Copyright 2016-17 Balena
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -28,12 +28,12 @@ module.exports = {
          * @property {String} user - path to user config
          * @memberof paths
          */
-        user: path_1.join(userHome, hidepath('resinrc.yml')),
+        user: path_1.join(userHome, hidepath('balenarc.yml')),
         /**
          * @property {String} project - path to project config
          * @memberof paths
          */
-        project: path_1.join(process.cwd(), 'resinrc.yml')
+        project: path_1.join(process.cwd(), 'balenarc.yml')
     }
 };
 //# sourceMappingURL=config.js.map

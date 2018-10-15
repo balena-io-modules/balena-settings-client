@@ -1,6 +1,6 @@
 "use strict";
 /*
-Copyright 2016-17 Resin.io
+Copyright 2016-17 Balena
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,79 +19,82 @@ var userHome = require("home-or-tmp");
 var path_1 = require("path");
 module.exports = {
     /**
-     * @property {String} resinUrl - Resin.io url
+     * @property {String} balenaUrl - Balena API url
      * @memberof defaults
      */
-    resinUrl: 'resin.io',
+    balenaUrl: 'balena-cloud.com',
     /**
-     * @property {Function} apiUrl - Resin.io API url
+     * @property {Function} apiUrl - Balena API url
      * @memberof defaults
      */
     apiUrl: function () {
-        return "https://api." + this.resinUrl;
+        return "https://api." + this.balenaUrl;
     },
     /**
-     * @property {Function} vpnUrl - Resin.io VPN url
+     * @property {Function} vpnUrl - Balena VPN url
      * @memberof defaults
      */
     vpnUrl: function () {
-        return "vpn." + this.resinUrl;
+        return "vpn." + this.balenaUrl;
     },
     /**
-     * @property {Function} registryUrl - Resin.io Registry url
+     * @property {Function} registryUrl - Balena Registry url
      * @memberof defaults
      */
     registryUrl: function () {
-        return "registry." + this.resinUrl;
+        return "registry." + this.balenaUrl;
     },
     /**
-     * @property {Function} registry2Url - Resin.io Registry 2 url
+     * @property {Function} registry2Url - Balena Registry 2 url
      * @memberof defaults
      */
     registry2Url: function () {
-        return "registry2." + this.resinUrl;
+        return "registry2." + this.balenaUrl;
     },
     /**
-     * @property {Function} imageMakerUrl - Resin.io Image Maker url
+     * @property {Function} imageMakerUrl - Balena Image Maker url
      * @memberof defaults
      */
     imageMakerUrl: function () {
-        return "https://img." + this.resinUrl;
+        return "https://img." + this.balenaUrl;
     },
     /**
-     * @property {Function} deltaUrl - Resin.io Delta url
+     * @property {Function} deltaUrl - Balena Delta url
      * @memberof defaults
      */
     deltaUrl: function () {
-        return "https://delta." + this.resinUrl;
+        return "https://delta." + this.balenaUrl;
     },
     /**
-     * @property {Function} dashboardUrl - Resin.io dashboard url
+     * @property {Function} dashboardUrl - Balena dashboard url
      * @memberof defaults
      */
     dashboardUrl: function () {
-        return "https://dashboard." + this.resinUrl;
+        return "https://dashboard." + this.balenaUrl;
     },
     /**
-     * @property {Function} proxyUrl - Resin.io Proxy url
+     * @property {Function} proxyUrl - Balena Proxy url
      * @memberof defaults
      */
     proxyUrl: function () {
-        if (this.resinUrl === 'resin.io') {
-            return 'resindevice.io';
+        if (this.balenaUrl === 'balena-cloud.com') {
+            return 'balena-devices.com';
         }
-        return "devices." + this.resinUrl;
+        else if (this.balenaUrl === 'balena-staging.com') {
+            return 'balena-staging-devices.com';
+        }
+        return "devices." + this.balenaUrl;
     },
     /**
      * @property {String} dataDirectory - data directory path
      * @memberof defaults
      */
-    dataDirectory: path_1.join(userHome, hidepath('resin')),
+    dataDirectory: path_1.join(userHome, hidepath('balena')),
     /**
      * @property {String} projectsDirectory - projects directory path
      * @memberof defaults
      */
-    projectsDirectory: path_1.join(userHome, 'ResinProjects'),
+    projectsDirectory: path_1.join(userHome, 'BalenaProjects'),
     /**
      * @property {Function} cacheDirectory - cache directory path
      * @memberof defaults
@@ -120,6 +123,6 @@ module.exports = {
      * @property {String} apiKeyVariable - api key environment variable
      * @memberof defaults
      */
-    apiKeyVariable: 'RESIN_API_KEY'
+    apiKeyVariable: 'BALENA_API_KEY'
 };
 //# sourceMappingURL=defaults.js.map

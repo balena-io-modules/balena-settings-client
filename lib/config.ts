@@ -1,5 +1,5 @@
 /*
-Copyright 2016-17 Resin.io
+Copyright 2016-17 Balena
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -34,12 +34,12 @@ export = {
 		 * @property {String} user - path to user config
 		 * @memberof paths
 		 */
-		user: joinPath(userHome, hidepath('resinrc.yml')),
+		user: joinPath(userHome, hidepath('balenarc.yml')),
 
 		/**
 		 * @property {String} project - path to project config
 		 * @memberof paths
 		 */
-		project: joinPath(process.cwd(), 'resinrc.yml')
+		project: joinPath(process.cwd(), 'balenarc.yml')
 	}
 };

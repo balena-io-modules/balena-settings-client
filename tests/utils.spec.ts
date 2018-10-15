@@ -103,13 +103,13 @@ describe('Utils:', () => {
 				{
 					greeting: 'Hola',
 					foo() {
-						return `${this.greeting} from Resin!`;
+						return `${this.greeting} from balena!`;
 					}
 				},
 				'foo'
 			);
 
-			m.chai.expect(setting).to.equal('Hola from Resin!');
+			m.chai.expect(setting).to.equal('Hola from balena!');
 		});
 	});
 });
