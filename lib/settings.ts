@@ -1,5 +1,5 @@
 /*
-Copyright 2016-17 Resin.io
+Copyright 2016-17 Balena
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -20,40 +20,40 @@ limitations under the License.
  * **UNIX:**
  *
  * - Default settings.
- * - `$HOME/.resinrc.yml`.
- * - `$PWD/resinrc.yml`.
- * - Environment variables matching `RESINRC_<SETTING_NAME>`.
+ * - `$HOME/.balenarc.yml`.
+ * - `$PWD/balenarc.yml`.
+ * - Environment variables matching `BALENARC_<SETTING_NAME>`.
  *
  * **Windows:**
  *
  * - Default settings.
- * - `%UserProfile%\_resinrc.yml`.
- * - `%cd%\resinrc.yml`.
- * - Environment variables matching `RESINRC_<SETTING_NAME>`.
+ * - `%UserProfile%\_balenarc.yml`.
+ * - `%cd%\balenarc.yml`.
+ * - Environment variables matching `BALENARC_<SETTING_NAME>`.
  *
  * The values from all locations are merged together, with sources listed below taking precedence.
  *
  * For example:
  *
  * ```sh
- * 	$ cat $HOME/.resinrc.yml
- * 	resinUrl: 'resinstaging.io'
- * 	projectsDirectory: '/opt/resin'
+ * 	$ cat $HOME/.balenarc.yml
+ * 	balenaUrl: 'balena-staging.com'
+ * 	projectsDirectory: '/opt/balena'
  *
- * 	$ cat $PWD/.resinrc.yml
- * 	projectsDirectory: '/Users/resin/Projects'
- * 	dataDirectory: '/opt/resin-data'
+ * 	$ cat $PWD/.balenarc.yml
+ * 	projectsDirectory: '/Users/balena/Projects'
+ * 	dataDirectory: '/opt/balena-data'
  *
- * 	$ echo $RESINRC_DATA_DIRECTORY
- * 	/opt/cache/resin
+ * 	$ echo $BALENARC_DATA_DIRECTORY
+ * 	/opt/cache/balena
  * ```
  *
  * That specific environment will have the following configuration:
  *
  * ```yaml
- * 	resinUrl: 'resinstaging.io'
- * 	projectsDirectory: '/Users/resin/Projects'
- * 	dataDirectory: '/opt/cache/resin'
+ * 	balenaUrl: 'balena-staging.com'
+ * 	projectsDirectory: '/Users/balena/Projects'
+ * 	dataDirectory: '/opt/cache/balena'
  * ```
  *
  * @module settings
@@ -73,7 +73,7 @@ const readConfigFile = (file: string): object => {
 
 	try {
 		// We read the config files synchronously since
-		// other modules rely on Resin Settings Client
+		// other modules rely on balena settings client
 		// to be ready for usage as soon as possible.
 		fileContents = fs.readFileSync(file, { encoding: 'utf8' });
 	} catch (error) {

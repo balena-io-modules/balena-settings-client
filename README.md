@@ -1,31 +1,31 @@
-resin-settings-client
+balena-settings-client
 ---------------------
 
-[![npm version](https://badge.fury.io/js/resin-settings-client.svg)](http://badge.fury.io/js/resin-settings-client)
-[![dependencies](https://david-dm.org/resin-io-modules/resin-settings-client.png)](https://david-dm.org/resin-io-modules/resin-settings-client.png)
-[![Build Status](https://travis-ci.org/resin-io-modules/resin-settings-client.svg?branch=master)](https://travis-ci.org/resin-io-modules/resin-settings-client)
-[![Build status](https://ci.appveyor.com/api/projects/status/a1tfwovw1kp421sa?svg=true)](https://ci.appveyor.com/project/jviotti/resin-settings-client)
+[![npm version](https://badge.fury.io/js/balena-settings-client.svg)](http://badge.fury.io/js/balena-settings-client)
+[![dependencies](https://david-dm.org/balena-io-modules/balena-settings-client.png)](https://david-dm.org/balena-io-modules/balena-settings-client.png)
+[![Build Status](https://travis-ci.org/balena-io-modules/balena-settings-client.svg?branch=master)](https://travis-ci.org/balena-io-modules/balena-settings-client)
+[![Build status](https://ci.appveyor.com/api/projects/status/a1tfwovw1kp421sa?svg=true)](https://ci.appveyor.com/project/jviotti/balena-settings-client)
 
-Join our online chat at [![Gitter chat](https://badges.gitter.im/resin-io/chat.png)](https://gitter.im/resin-io/chat)
+Join our online chat at [![Gitter chat](https://badges.gitter.im/balena-io/chat.png)](https://gitter.im/balena-io/chat)
 
-Resin.io client application shared settings.
+Balena client application shared settings.
 
 Role
 ----
 
-The intention of this module is to provice low level access to user configurable Resin.io simple settings.
+The intention of this module is to provice low level access to user configurable balena simple settings.
 
 **THIS MODULE IS LOW LEVEL AND IS NOT MEANT TO BE USED BY END USERS DIRECTLY**.
 
-Unless you know what you're doing, use the [Resin SDK](https://github.com/resin-io/resin-sdk) instead.
+Unless you know what you're doing, use the [balena SDK](https://github.com/balena-io/balena-sdk) instead.
 
 Installation
 ------------
 
-Install `resin-settings-client` by running:
+Install `balena-settings-client` by running:
 
 ```sh
-$ npm install --save resin-settings-client
+$ npm install --save balena-settings-client
 ```
 
 Documentation
@@ -36,40 +36,40 @@ This module attempts to retrieve configuration from the following places:
 **UNIX:**
 
 - Default settings.
-- `$HOME/.resinrc.yml`.
-- `$PWD/resinrc.yml`.
-- Environment variables matching `RESINRC_<SETTING_NAME>`.
+- `$HOME/.balenarc.yml`.
+- `$PWD/balenarc.yml`.
+- Environment variables matching `BALENARC_<SETTING_NAME>`.
 
 **Windows:**
 
 - Default settings.
-- `%UserProfile%\_resinrc.yml`.
-- `%cd%\resinrc.yml`.
-- Environment variables matching `RESINRC_<SETTING_NAME>`.
+- `%UserProfile%\_balenarc.yml`.
+- `%cd%\balenarc.yml`.
+- Environment variables matching `BALENARC_<SETTING_NAME>`.
 
 The values from all locations are merged together, with sources listed below taking precedence.
 
 For example:
 
 ```sh
-	$ cat $HOME/.resinrc.yml
-	resinUrl: 'resinstaging.io'
-	projectsDirectory: '/opt/resin'
+	$ cat $HOME/.balenarc.yml
+	balenaUrl: 'balena-staging.com'
+	projectsDirectory: '/opt/balena'
 
-	$ cat $PWD/.resinrc.yml
-	projectsDirectory: '/Users/resin/Projects'
-	dataDirectory: '/opt/resin-data'
+	$ cat $PWD/.balenarc.yml
+	projectsDirectory: '/Users/balena/Projects'
+	dataDirectory: '/opt/balena-data'
 
-	$ echo $RESINRC_DATA_DIRECTORY
-	/opt/cache/resin
+	$ echo $BALENARC_DATA_DIRECTORY
+	/opt/cache/balena
 ```
 
 That specific environment will have the following configuration:
 
 ```yaml
-	resinUrl: 'resinstaging.io'
-	projectsDirectory: '/Users/resin/Projects'
-	dataDirectory: '/opt/cache/resin'
+	balenaUrl: 'balena-staging.com'
+	projectsDirectory: '/Users/balena/Projects'
+	dataDirectory: '/opt/cache/balena'
 ```
 
 
@@ -108,14 +108,14 @@ settings.getAll()
 Modifying settings
 ------------------
 
-This module is intended to only provide *read only* access to the settings. Resin Settings Clients reads settings from various locations, like a local `resinrc` file and a per user `config` file, therefore the module doesn't know where to write changes back.
+This module is intended to only provide *read only* access to the settings. Balena settings client reads settings from various locations, like a local `balenarc` file and a per user `config` file, therefore the module doesn't know where to write changes back.
 
-If you want to persist data related to Resin.io, consider using [Resin Settings Storage](https://github.com/resin-io-modules/resin-settings-storage) instead.
+If you want to persist data related to balena, consider using [balena settings storage](https://github.com/balena-io-modules/balena-settings-storage) instead.
 
 Support
 -------
 
-If you're having any problem, please [raise an issue](https://github.com/resin-io-modules/resin-settings-client/issues/new) on GitHub and the Resin.io team will be happy to help.
+If you're having any problem, please [raise an issue](https://github.com/balena-io-modules/balena-settings-client/issues/new) on GitHub and the balena team will be happy to help.
 
 Tests
 -----
@@ -129,8 +129,8 @@ $ npm test
 Contribute
 ----------
 
-- Issue Tracker: [github.com/resin-io-modules/resin-settings-client/issues](https://github.com/resin-io-modules/resin-settings-client/issues)
-- Source Code: [github.com/resin-io-modules/resin-settings-client](https://github.com/resin-io-modules/resin-settings-client)
+- Issue Tracker: [github.com/balena-io-modules/balena-settings-client/issues](https://github.com/balena-io-modules/balena-settings-client/issues)
+- Source Code: [github.com/balena-io-modules/balena-settings-client](https://github.com/balena-io-modules/balena-settings-client)
 
 Before submitting a PR, please make sure that you include tests, and that [coffeelint](http://www.coffeelint.org/) runs without any warning:
 

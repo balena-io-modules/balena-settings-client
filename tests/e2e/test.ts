@@ -42,11 +42,11 @@ wary.it(
 		fs.writeFileSync(
 			config.paths.user,
 			stripIndent`
-				resinUrl: resinstaging.io/
+				balenaUrl: balena-staging.com
 			`
 		);
 		return Promise.props({
-			resinUrl: getSetting('resinUrl'),
+			balenaUrl: getSetting('balenaUrl'),
 			apiUrl: getSetting('apiUrl'),
 			dashboardUrl: getSetting('dashboardUrl'),
 			vpnUrl: getSetting('vpnUrl'),
@@ -54,17 +54,19 @@ wary.it(
 			registry2Url: getSetting('registry2Url'),
 			proxyUrl: getSetting('proxyUrl')
 		}).then(settings => {
-			m.chai.expect(settings.resinUrl).to.equal('resinstaging.io/');
-			m.chai.expect(settings.apiUrl).to.equal('https://api.resinstaging.io/');
+			m.chai.expect(settings.balenaUrl).to.equal('balena-staging.com');
+			m.chai.expect(settings.apiUrl).to.equal('https://api.balena-staging.com');
 			m.chai
 				.expect(settings.dashboardUrl)
-				.to.equal('https://dashboard.resinstaging.io/');
-			m.chai.expect(settings.vpnUrl).to.equal('vpn.resinstaging.io/');
-			m.chai.expect(settings.registryUrl).to.equal('registry.resinstaging.io/');
+				.to.equal('https://dashboard.balena-staging.com');
+			m.chai.expect(settings.vpnUrl).to.equal('vpn.balena-staging.com');
+			m.chai
+				.expect(settings.registryUrl)
+				.to.equal('registry.balena-staging.com');
 			m.chai
 				.expect(settings.registry2Url)
-				.to.equal('registry2.resinstaging.io/');
-			m.chai.expect(settings.proxyUrl).to.equal('devices.resinstaging.io/');
+				.to.equal('registry2.balena-staging.com');
+			m.chai.expect(settings.proxyUrl).to.equal('balena-staging-devices.com');
 		});
 	}
 );
@@ -73,17 +75,17 @@ wary.it('should give precedence to project configuration', {}, () => {
 	fs.writeFileSync(
 		config.paths.user,
 		stripIndent`
-			resinUrl: resinstaging.io/
+			balenaUrl: balena-staging.com/
 		`
 	);
 	fs.writeFileSync(
 		config.paths.project,
 		stripIndent`
-			resinUrl: resin.custom.com/
+			balenaUrl: balena.custom.com/
 		`
 	);
 	return Promise.props({
-		resinUrl: getSetting('resinUrl'),
+		balenaUrl: getSetting('balenaUrl'),
 		apiUrl: getSetting('apiUrl'),
 		dashboardUrl: getSetting('dashboardUrl'),
 		vpnUrl: getSetting('vpnUrl'),
@@ -91,17 +93,17 @@ wary.it('should give precedence to project configuration', {}, () => {
 		registry2Url: getSetting('registry2Url'),
 		proxyUrl: getSetting('proxyUrl')
 	}).then(settings => {
-		m.chai.expect(settings.resinUrl).to.equal('resin.custom.com/');
-		m.chai.expect(settings.apiUrl).to.equal('https://api.resin.custom.com/');
+		m.chai.expect(settings.balenaUrl).to.equal('balena.custom.com/');
+		m.chai.expect(settings.apiUrl).to.equal('https://api.balena.custom.com/');
 		m.chai
 			.expect(settings.dashboardUrl)
-			.to.equal('https://dashboard.resin.custom.com/');
-		m.chai.expect(settings.vpnUrl).to.equal('vpn.resin.custom.com/');
-		m.chai.expect(settings.registryUrl).to.equal('registry.resin.custom.com/');
+			.to.equal('https://dashboard.balena.custom.com/');
+		m.chai.expect(settings.vpnUrl).to.equal('vpn.balena.custom.com/');
+		m.chai.expect(settings.registryUrl).to.equal('registry.balena.custom.com/');
 		m.chai
 			.expect(settings.registry2Url)
-			.to.equal('registry2.resin.custom.com/');
-		m.chai.expect(settings.proxyUrl).to.equal('devices.resin.custom.com/');
+			.to.equal('registry2.balena.custom.com/');
+		m.chai.expect(settings.proxyUrl).to.equal('devices.balena.custom.com/');
 	});
 });
 
@@ -112,44 +114,44 @@ wary.it(
 		fs.writeFileSync(
 			config.paths.user,
 			stripIndent`
-				resinUrl: resinstaging.io/
+				balenaUrl: balena-staging.com/
 			`
 		);
 		fs.writeFileSync(
 			config.paths.project,
 			stripIndent`
-				resinUrl: resin.custom.com/
+				balenaUrl: balena.custom.com/
 			`
 		);
-		process.env.RESINRC_RESIN_URL = 'resindev.custom.com/';
+		process.env.BALENARC_BALENA_URL = 'balenadev.custom.com/';
 
 		return m.chai
-			.expect(getSetting('resinUrl'))
-			.to.eventually.equal('resindev.custom.com/');
+			.expect(getSetting('balenaUrl'))
+			.to.eventually.equal('balenadev.custom.com/');
 	}
 );
 
 wary.it('should be able to return all settings', {}, () => {
-	process.env.RESINRC_PROJECTS_DIRECTORY = '/usr/src/projects';
-	process.env.RESINRC_DATA_DIRECTORY = '/opt';
+	process.env.BALENARC_PROJECTS_DIRECTORY = '/usr/src/projects';
+	process.env.BALENARC_DATA_DIRECTORY = '/opt';
 
 	return m.chai.expect(getAll()).to.eventually.deep.equal({
-		resinUrl: 'resindev.custom.com/',
-		apiUrl: 'https://api.resindev.custom.com/',
-		vpnUrl: 'vpn.resindev.custom.com/',
-		registryUrl: 'registry.resindev.custom.com/',
-		registry2Url: 'registry2.resindev.custom.com/',
-		imageMakerUrl: 'https://img.resindev.custom.com/',
-		deltaUrl: 'https://delta.resindev.custom.com/',
-		dashboardUrl: 'https://dashboard.resindev.custom.com/',
-		proxyUrl: 'devices.resindev.custom.com/',
+		balenaUrl: 'balenadev.custom.com/',
+		apiUrl: 'https://api.balenadev.custom.com/',
+		vpnUrl: 'vpn.balenadev.custom.com/',
+		registryUrl: 'registry.balenadev.custom.com/',
+		registry2Url: 'registry2.balenadev.custom.com/',
+		imageMakerUrl: 'https://img.balenadev.custom.com/',
+		deltaUrl: 'https://delta.balenadev.custom.com/',
+		dashboardUrl: 'https://dashboard.balenadev.custom.com/',
+		proxyUrl: 'devices.balenadev.custom.com/',
 		dataDirectory: '/opt',
 		cacheDirectory: path.join('/opt', 'cache'),
 		binDirectory: path.join('/opt', 'bin'),
 		projectsDirectory: '/usr/src/projects',
 		imageCacheTime: 604800000,
 		tokenRefreshInterval: 3600000,
-		apiKeyVariable: 'RESIN_API_KEY'
+		apiKeyVariable: 'BALENA_API_KEY'
 	});
 });
 
@@ -157,7 +159,7 @@ wary.it('should be rejected if the config file is malformed', {}, () => {
 	fs.writeFileSync(
 		config.paths.project,
 		stripIndent`
-			resinUrl=resin.custom.com/
+			balenaUrl=balena.custom.com/
 		`
 	);
 

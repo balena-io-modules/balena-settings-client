@@ -1,5 +1,5 @@
 /*
-Copyright 2016-17 Resin.io
+Copyright 2016-17 Balena
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import * as _ from 'lodash';
  * @throws Will throw if variable is missing.
  *
  * @example
- * console.log(environment.getSettingName('RESINRC_HELLO_WORLD'))
+ * console.log(environment.getSettingName('BALENARC_HELLO_WORLD'))
  * > helloWorld
  */
 export const getSettingName = (variable?: string) => {
@@ -35,7 +35,7 @@ export const getSettingName = (variable?: string) => {
 	if (!variable) {
 		throw new Error('Missing variable name');
 	}
-	return _.camelCase(variable.replace(/^RESINRC_/i, ''));
+	return _.camelCase(variable.replace(/^BALENARC_/i, ''));
 };
 
 /**
@@ -47,7 +47,7 @@ export const getSettingName = (variable?: string) => {
  * @returns {Boolean} is a configuration variable
  *
  * @example
- * console.log(environment.isSettingVariable('RESINRC_HELLO_WORLD'))
+ * console.log(environment.isSettingVariable('BALENARC_HELLO_WORLD'))
  * > true
  *
  * @example
@@ -55,7 +55,7 @@ export const getSettingName = (variable?: string) => {
  * > false
  */
 export const isSettingVariable = (variable: string) =>
-	/^RESINRC_(.)+/i.test(variable);
+	/^BALENARC_(.)+/i.test(variable);
 
 /**
  * @summary Parse environment variables
@@ -67,11 +67,11 @@ export const isSettingVariable = (variable: string) =>
  *
  * @example
  * console.log(utils.parse({
- * 	RESINRC_RESIN_URL: 'https://resin.io'
+ * 	BALENARC_BALENA_URL: 'https://balena.io'
  * 	EDITOR: 'vim'
  * }))
  * > {
- * > 	resinUrl: 'https://resin.io'
+ * > 	balenaUrl: 'https://balena.io'
  * > }
  */
 export const parse = (environment: { [k: string]: string | undefined }) =>
