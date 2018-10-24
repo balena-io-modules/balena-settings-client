@@ -1,6 +1,6 @@
 {
   "name": "balena-settings-client",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Balena client application shared settings",
   "main": "build/settings.js",
   "types": "lib/settings.ts",
