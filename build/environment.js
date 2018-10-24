@@ -35,7 +35,9 @@ exports.getSettingName = function (variable) {
     if (!variable) {
         throw new Error('Missing variable name');
     }
-    return _.camelCase(variable.replace(/^BALENARC_/i, ''));
+    return _.camelCase(variable
+        .replace(/^(BALENARC|RESINRC)_/i, '')
+        .replace(/(^|_)RESIN(_|$)/, '$1BALENA$2'));
 };
 /**
  * @summary Determine if a variable is a configuration variable
@@ -54,7 +56,7 @@ exports.getSettingName = function (variable) {
  * > false
  */
 exports.isSettingVariable = function (variable) {
-    return /^BALENARC_(.)+/i.test(variable);
+    return /^(BALENARC_|RESINRC_)(.)+/i.test(variable);
 };
 /**
  * @summary Parse environment variables
