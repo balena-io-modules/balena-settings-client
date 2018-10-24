@@ -87,8 +87,11 @@ var readConfigFile = function (file) {
         throw new Error("Error parsing config file " + file + ": " + error.message);
     }
 };
+var replaceResinKeys = function (parsedConfig) {
+    return _.mapKeys(parsedConfig, function (_value, key) { return key.replace('resin', 'balena'); });
+};
 var getSettings = _.once(function () {
-    return utils.mergeObjects({}, defaults, readConfigFile(config.paths.user), readConfigFile(config.paths.project), environment.parse(process.env));
+    return utils.mergeObjects({}, defaults, replaceResinKeys(readConfigFile(config.paths.userLegacy)), readConfigFile(config.paths.user), replaceResinKeys(readConfigFile(config.paths.projectLegacy)), readConfigFile(config.paths.project), environment.parse(process.env));
 });
 /**
  * @summary Get a setting

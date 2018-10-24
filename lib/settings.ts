@@ -90,11 +90,16 @@ const readConfigFile = (file: string): object => {
 	}
 };
 
+const replaceResinKeys = (parsedConfig: object) =>
+	_.mapKeys(parsedConfig, (_value, key) => key.replace('resin', 'balena'));
+
 const getSettings = _.once((): { [k: string]: string | undefined } =>
 	utils.mergeObjects(
 		{},
 		defaults,
+		replaceResinKeys(readConfigFile(config.paths.userLegacy)),
 		readConfigFile(config.paths.user),
+		replaceResinKeys(readConfigFile(config.paths.projectLegacy)),
 		readConfigFile(config.paths.project),
 		environment.parse(process.env)
 	)
