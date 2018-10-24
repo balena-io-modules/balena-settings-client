@@ -37,9 +37,21 @@ export = {
 		user: joinPath(userHome, hidepath('balenarc.yml')),
 
 		/**
+		 * @property {String} user - path to legacy user config
+		 * @memberof paths
+		 */
+		userLegacy: joinPath(userHome, hidepath('resinrc.yml')),
+
+		/**
 		 * @property {String} project - path to project config
 		 * @memberof paths
 		 */
-		project: joinPath(process.cwd(), 'balenarc.yml')
+		project: joinPath(process.cwd(), 'balenarc.yml'),
+
+		/**
+		 * @property {String} project - path to legacy project config
+		 * @memberof paths
+		 */
+		projectLegacy: joinPath(process.cwd(), 'resinrc.yml')
 	}
 };

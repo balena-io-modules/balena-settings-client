@@ -36,7 +36,39 @@ const getAll = () => {
 };
 
 wary.it(
-	'should override defaults given a user configuration that points to staging',
+	'should override defaults given a legacy resin configuration',
+	{},
+	() => {
+		fs.writeFileSync(
+			config.paths.user.replace('balenarc.yml', 'resinrc.yml'),
+			stripIndent`
+				resinUrl: resin.io
+			`
+		);
+		return Promise.props({
+			balenaUrl: getSetting('balenaUrl'),
+			apiUrl: getSetting('apiUrl'),
+			dashboardUrl: getSetting('dashboardUrl'),
+			vpnUrl: getSetting('vpnUrl'),
+			registryUrl: getSetting('registryUrl'),
+			registry2Url: getSetting('registry2Url'),
+			proxyUrl: getSetting('proxyUrl')
+		}).then(settings => {
+			m.chai.expect(settings.balenaUrl).to.equal('resin.io');
+			m.chai.expect(settings.apiUrl).to.equal('https://api.resin.io');
+			m.chai
+				.expect(settings.dashboardUrl)
+				.to.equal('https://dashboard.resin.io');
+			m.chai.expect(settings.vpnUrl).to.equal('vpn.resin.io');
+			m.chai.expect(settings.registryUrl).to.equal('registry.resin.io');
+			m.chai.expect(settings.registry2Url).to.equal('registry2.resin.io');
+			m.chai.expect(settings.proxyUrl).to.equal('resindevice.io');
+		});
+	}
+);
+
+wary.it(
+	'should override defaults and resin configuration given a user balena configuration that points to staging',
 	{},
 	() => {
 		fs.writeFileSync(
@@ -108,7 +140,7 @@ wary.it('should give precedence to project configuration', {}, () => {
 });
 
 wary.it(
-	'should give precedende to environment variable configuration',
+	'should give precedence to environment variable configuration',
 	{},
 	() => {
 		fs.writeFileSync(

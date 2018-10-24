@@ -95,6 +95,8 @@ export = {
 			return 'balena-devices.com';
 		} else if (this.balenaUrl === 'balena-staging.com') {
 			return 'balena-staging-devices.com';
+		} else if (this.balenaUrl === 'resin.io') {
+			return 'resindevice.io';
 		}
 		return `devices.${this.balenaUrl}`;
 	},

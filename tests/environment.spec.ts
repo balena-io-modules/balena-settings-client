@@ -37,12 +37,27 @@ describe('Environment:', () => {
 			const setting = environment.getSettingName('balenarc_hello_world_foo');
 			m.chai.expect(setting).to.equal('helloWorldFoo');
 		});
+
+		it('should return the correct setting with a RESINRC_ variable prefix', () => {
+			const setting = environment.getSettingName('RESINRC_HELLO');
+			m.chai.expect(setting).to.equal('hello');
+		});
+
+		it('should return the correct setting for a resin-related variable name', () => {
+			const setting = environment.getSettingName('RESINRC_RESIN_URL');
+			m.chai.expect(setting).to.equal('balenaUrl');
+		});
 	});
 
 	describe('.isSettingVariable()', () => {
 		it('should return true if it starts with BALENARC_', () =>
 			m.chai
 				.expect(environment.isSettingVariable('BALENARC_HELLO'))
+				.to.equal(true));
+
+		it('should return true if it starts with RESINRC_', () =>
+			m.chai
+				.expect(environment.isSettingVariable('RESINRC_HELLO'))
 				.to.equal(true));
 
 		it('should return true if it starts with balenarc_', () =>

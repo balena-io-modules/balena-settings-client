@@ -30,10 +30,20 @@ module.exports = {
          */
         user: path_1.join(userHome, hidepath('balenarc.yml')),
         /**
+         * @property {String} user - path to legacy user config
+         * @memberof paths
+         */
+        userLegacy: path_1.join(userHome, hidepath('resinrc.yml')),
+        /**
          * @property {String} project - path to project config
          * @memberof paths
          */
-        project: path_1.join(process.cwd(), 'balenarc.yml')
+        project: path_1.join(process.cwd(), 'balenarc.yml'),
+        /**
+         * @property {String} project - path to legacy project config
+         * @memberof paths
+         */
+        projectLegacy: path_1.join(process.cwd(), 'resinrc.yml')
     }
 };
 //# sourceMappingURL=config.js.map

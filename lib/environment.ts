@@ -35,7 +35,11 @@ export const getSettingName = (variable?: string) => {
 	if (!variable) {
 		throw new Error('Missing variable name');
 	}
-	return _.camelCase(variable.replace(/^BALENARC_/i, ''));
+	return _.camelCase(
+		variable
+			.replace(/^(BALENARC|RESINRC)_/i, '')
+			.replace(/(^|_)RESIN(_|$)/, '$1BALENA$2')
+	);
 };
 
 /**
@@ -55,7 +59,7 @@ export const getSettingName = (variable?: string) => {
  * > false
  */
 export const isSettingVariable = (variable: string) =>
-	/^BALENARC_(.)+/i.test(variable);
+	/^(BALENARC_|RESINRC_)(.)+/i.test(variable);
 
 /**
  * @summary Parse environment variables
