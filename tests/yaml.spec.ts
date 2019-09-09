@@ -18,7 +18,7 @@ describe('YAML:', () => {
 
 			m.chai.expect(result).to.deep.equal({
 				hello: 'world',
-				foo: 'bar'
+				foo: 'bar',
 			});
 		});
 
@@ -28,7 +28,7 @@ describe('YAML:', () => {
 			`);
 
 			m.chai.expect(result).to.deep.equal({
-				phone: 12345
+				phone: 12345,
 			});
 		});
 
@@ -41,7 +41,7 @@ describe('YAML:', () => {
 			`);
 
 			m.chai.expect(result).to.deep.equal({
-				list: ['foo', 'bar', 'baz']
+				list: ['foo', 'bar', 'baz'],
 			});
 		});
 	});

@@ -126,6 +126,6 @@ module.exports = {
      * @property {String} apiKeyVariable - api key environment variable
      * @memberof defaults
      */
-    apiKeyVariable: 'BALENA_API_KEY'
+    apiKeyVariable: 'BALENA_API_KEY',
 };
 //# sourceMappingURL=defaults.js.map

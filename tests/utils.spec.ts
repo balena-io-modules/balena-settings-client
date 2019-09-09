@@ -6,12 +6,12 @@ describe('Utils:', () => {
 		it('should be able to merge many objects', () => {
 			const first = {
 				hello: 'world',
-				foo: 'bar'
+				foo: 'bar',
 			};
 
 			const second = {
 				hello: 'world!',
-				foo: 'baz'
+				foo: 'baz',
 			};
 
 			const third = { hello: 'world' };
@@ -19,7 +19,7 @@ describe('Utils:', () => {
 			const result = utils.mergeObjects(first, second, third);
 			m.chai.expect(result).to.deep.equal({
 				hello: 'world',
-				foo: 'baz'
+				foo: 'baz',
 			});
 		});
 
@@ -27,19 +27,19 @@ describe('Utils:', () => {
 			const first = {
 				foo() {
 					return 'first';
-				}
+				},
 			};
 
 			const second = {
 				foo() {
 					return 'second';
-				}
+				},
 			};
 
 			const third = {
 				foo() {
 					return 'third';
-				}
+				},
 			};
 
 			const result = utils.mergeObjects(first, second, third);
@@ -79,7 +79,7 @@ describe('Utils:', () => {
 		it('should evaluate deep settings', () => {
 			const setting = utils.evaluateSetting(
 				{ foo: { bar: { baz: 'qux' } } },
-				'foo.bar.baz'
+				'foo.bar.baz',
 			);
 
 			m.chai.expect(setting).to.equal('qux');
@@ -90,9 +90,9 @@ describe('Utils:', () => {
 				{
 					foo() {
 						return 'bar';
-					}
+					},
 				},
-				'foo'
+				'foo',
 			);
 
 			m.chai.expect(setting).to.equal('bar');
@@ -104,9 +104,9 @@ describe('Utils:', () => {
 					greeting: 'Hola',
 					foo() {
 						return `${this.greeting} from balena!`;
-					}
+					},
 				},
-				'foo'
+				'foo',
 			);
 
 			m.chai.expect(setting).to.equal('Hola from balena!');

@@ -38,7 +38,7 @@ export const getSettingName = (variable?: string) => {
 	return _.camelCase(
 		variable
 			.replace(/^(BALENARC|RESINRC)_/i, '')
-			.replace(/(^|_)RESIN(_|$)/, '$1BALENA$2')
+			.replace(/(^|_)RESIN(_|$)/, '$1BALENA$2'),
 	);
 };
 

@@ -77,7 +77,7 @@ export const mergeObjects = _.merge;
  */
 export const evaluateSetting = <T>(
 	settings: object | undefined | null = {},
-	property: string
+	property: string,
 ): T => {
 	let value = _.get(settings, property);
 

@@ -96,33 +96,33 @@ describe('Environment:', () => {
 
 			it('should parse an environment with one balena variable', () => {
 				const result = environment.parse({
-					BALENARC_HELLO_WORLD: 'foo'
+					BALENARC_HELLO_WORLD: 'foo',
 				});
 
 				m.chai.expect(result).to.deep.equal({
-					helloWorld: 'foo'
+					helloWorld: 'foo',
 				});
 			});
 
 			it('should parse an environment with one lowercase balena variable', () => {
 				const result = environment.parse({
-					balenarc_hello_world: 'foo'
+					balenarc_hello_world: 'foo',
 				});
 
 				m.chai.expect(result).to.deep.equal({
-					helloWorld: 'foo'
+					helloWorld: 'foo',
 				});
 			});
 
 			it('should parse an environment with multiple balena variables', () => {
 				const result = environment.parse({
 					BALENARC_HELLO_WORLD: 'foo',
-					BALENARC_BAR: 'baz'
+					BALENARC_BAR: 'baz',
 				});
 
 				m.chai.expect(result).to.deep.equal({
 					helloWorld: 'foo',
-					bar: 'baz'
+					bar: 'baz',
 				});
 			});
 
@@ -132,7 +132,7 @@ describe('Environment:', () => {
 					BALENARC: 'true',
 					BALENA_SALUTE: 'Hola!',
 					EDITOR: 'vim',
-					SHELL: 'zsh'
+					SHELL: 'zsh',
 				});
 
 				m.chai.expect(result).to.deep.equal({});
@@ -142,11 +142,11 @@ describe('Environment:', () => {
 				const result = environment.parse({
 					BALENARC_HELLO: 'world',
 					EDITOR: 'vim',
-					SHELL: 'zsh'
+					SHELL: 'zsh',
 				});
 
 				m.chai.expect(result).to.deep.equal({
-					hello: 'world'
+					hello: 'world',
 				});
 			});
 		});

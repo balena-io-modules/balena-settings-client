@@ -11,7 +11,7 @@ import config = require('../../lib/config');
 
 const execAsync = Promise.promisify<[string, string], string, any>(
 	childProcess.exec,
-	{ multiArgs: true }
+	{ multiArgs: true },
 );
 
 const handleExecResult = (stdout: string, stderr: string) => {
@@ -24,7 +24,7 @@ const handleExecResult = (stdout: string, stderr: string) => {
 const getSetting = (setting: string) => {
 	const script = path.join(__dirname, 'get.ts');
 	return execAsync(`ts-node ${script} ${setting}`, { encoding: 'utf8' }).spread(
-		handleExecResult
+		handleExecResult,
 	);
 };
 
@@ -43,7 +43,7 @@ wary.it(
 			config.paths.user.replace('balenarc.yml', 'resinrc.yml'),
 			stripIndent`
 				resinUrl: resin.io
-			`
+			`,
 		);
 		return Promise.props({
 			balenaUrl: getSetting('balenaUrl'),
@@ -52,7 +52,7 @@ wary.it(
 			vpnUrl: getSetting('vpnUrl'),
 			registryUrl: getSetting('registryUrl'),
 			registry2Url: getSetting('registry2Url'),
-			proxyUrl: getSetting('proxyUrl')
+			proxyUrl: getSetting('proxyUrl'),
 		}).then(settings => {
 			m.chai.expect(settings.balenaUrl).to.equal('resin.io');
 			m.chai.expect(settings.apiUrl).to.equal('https://api.resin.io');
@@ -64,7 +64,7 @@ wary.it(
 			m.chai.expect(settings.registry2Url).to.equal('registry2.resin.io');
 			m.chai.expect(settings.proxyUrl).to.equal('resindevice.io');
 		});
-	}
+	},
 );
 
 wary.it(
@@ -75,7 +75,7 @@ wary.it(
 			config.paths.user,
 			stripIndent`
 				balenaUrl: balena-staging.com
-			`
+			`,
 		);
 		return Promise.props({
 			balenaUrl: getSetting('balenaUrl'),
@@ -84,7 +84,7 @@ wary.it(
 			vpnUrl: getSetting('vpnUrl'),
 			registryUrl: getSetting('registryUrl'),
 			registry2Url: getSetting('registry2Url'),
-			proxyUrl: getSetting('proxyUrl')
+			proxyUrl: getSetting('proxyUrl'),
 		}).then(settings => {
 			m.chai.expect(settings.balenaUrl).to.equal('balena-staging.com');
 			m.chai.expect(settings.apiUrl).to.equal('https://api.balena-staging.com');
@@ -100,7 +100,7 @@ wary.it(
 				.to.equal('registry2.balena-staging.com');
 			m.chai.expect(settings.proxyUrl).to.equal('balena-staging-devices.com');
 		});
-	}
+	},
 );
 
 wary.it('should give precedence to project configuration', {}, () => {
@@ -108,13 +108,13 @@ wary.it('should give precedence to project configuration', {}, () => {
 		config.paths.user,
 		stripIndent`
 			balenaUrl: balena-staging.com/
-		`
+		`,
 	);
 	fs.writeFileSync(
 		config.paths.project,
 		stripIndent`
 			balenaUrl: balena.custom.com/
-		`
+		`,
 	);
 	return Promise.props({
 		balenaUrl: getSetting('balenaUrl'),
@@ -123,7 +123,7 @@ wary.it('should give precedence to project configuration', {}, () => {
 		vpnUrl: getSetting('vpnUrl'),
 		registryUrl: getSetting('registryUrl'),
 		registry2Url: getSetting('registry2Url'),
-		proxyUrl: getSetting('proxyUrl')
+		proxyUrl: getSetting('proxyUrl'),
 	}).then(settings => {
 		m.chai.expect(settings.balenaUrl).to.equal('balena.custom.com/');
 		m.chai.expect(settings.apiUrl).to.equal('https://api.balena.custom.com/');
@@ -147,20 +147,20 @@ wary.it(
 			config.paths.user,
 			stripIndent`
 				balenaUrl: balena-staging.com/
-			`
+			`,
 		);
 		fs.writeFileSync(
 			config.paths.project,
 			stripIndent`
 				balenaUrl: balena.custom.com/
-			`
+			`,
 		);
 		process.env.BALENARC_BALENA_URL = 'balenadev.custom.com/';
 
 		return m.chai
 			.expect(getSetting('balenaUrl'))
 			.to.eventually.equal('balenadev.custom.com/');
-	}
+	},
 );
 
 wary.it('should be able to return all settings', {}, () => {
@@ -183,7 +183,7 @@ wary.it('should be able to return all settings', {}, () => {
 		projectsDirectory: '/usr/src/projects',
 		imageCacheTime: 604800000,
 		tokenRefreshInterval: 3600000,
-		apiKeyVariable: 'BALENA_API_KEY'
+		apiKeyVariable: 'BALENA_API_KEY',
 	});
 });
 
@@ -192,7 +192,7 @@ wary.it('should be rejected if the config file is malformed', {}, () => {
 		config.paths.project,
 		stripIndent`
 			balenaUrl=balena.custom.com/
-		`
+		`,
 	);
 
 	return m.chai
