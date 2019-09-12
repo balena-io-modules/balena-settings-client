@@ -126,7 +126,7 @@ describe('Defaults:', () => {
 		it('should be an absolute path', () => {
 			const setting = utils.evaluateSetting<string>(
 				defaults,
-				'projectsDirectory'
+				'projectsDirectory',
 			);
 			m.chai.expect(setting).to.be.equal(path.resolve(setting));
 		}));
@@ -153,7 +153,7 @@ describe('Defaults:', () => {
 		it('should be a number', () => {
 			const setting = utils.evaluateSetting<number>(
 				defaults,
-				'tokenRefreshInterval'
+				'tokenRefreshInterval',
 			);
 			m.chai.expect(setting).to.be.a('number');
 		});
@@ -161,7 +161,7 @@ describe('Defaults:', () => {
 		it('should be a positive number', () => {
 			const setting = utils.evaluateSetting<number>(
 				defaults,
-				'tokenRefreshInterval'
+				'tokenRefreshInterval',
 			);
 			m.chai.expect(setting).to.be.greaterThan(0);
 		});
@@ -169,7 +169,7 @@ describe('Defaults:', () => {
 		it('should be an integer', () => {
 			const setting = utils.evaluateSetting<number>(
 				defaults,
-				'tokenRefreshInterval'
+				'tokenRefreshInterval',
 			);
 			m.chai.expect(setting % 1).to.equal(0);
 		});

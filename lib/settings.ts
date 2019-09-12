@@ -101,8 +101,8 @@ const getSettings = _.once((): { [k: string]: string | undefined } =>
 		readConfigFile(config.paths.user),
 		replaceResinKeys(readConfigFile(config.paths.projectLegacy)),
 		readConfigFile(config.paths.project),
-		environment.parse(process.env)
-	)
+		environment.parse(process.env),
+	),
 );
 
 /**

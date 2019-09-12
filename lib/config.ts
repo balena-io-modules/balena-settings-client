@@ -52,6 +52,6 @@ export = {
 		 * @property {String} project - path to legacy project config
 		 * @memberof paths
 		 */
-		projectLegacy: joinPath(process.cwd(), 'resinrc.yml')
-	}
+		projectLegacy: joinPath(process.cwd(), 'resinrc.yml'),
+	},
 };

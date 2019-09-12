@@ -43,7 +43,7 @@ module.exports = {
          * @property {String} project - path to legacy project config
          * @memberof paths
          */
-        projectLegacy: path_1.join(process.cwd(), 'resinrc.yml')
-    }
+        projectLegacy: path_1.join(process.cwd(), 'resinrc.yml'),
+    },
 };
 //# sourceMappingURL=config.js.map
