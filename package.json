@@ -25,6 +25,7 @@
     "build": "rimraf ./build && npm run prettify && tsc && npm run readme",
     "prepublish": "require-npm4-to-publish",
     "prepublishOnly": "npm test",
+    "prepare": "npm run build",
     "prettify": "prettier --config ./node_modules/resin-lint/config/.prettierrc --write \"lib/**/*.ts\" \"tests/**/*.ts\"",
     "readme": "jsdoc2md --template doc/README.hbs build/settings.js > README.md"
   },
