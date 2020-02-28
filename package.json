@@ -3,7 +3,7 @@
   "version": "4.0.2",
   "description": "Balena client application shared settings",
   "main": "build/settings.js",
-  "types": "lib/settings.ts",
+  "types": "build/settings.d.ts",
   "homepage": "https://github.com/balena-io-modules/balena-settings-client",
   "repository": {
     "type": "git",
