@@ -3,7 +3,7 @@
   "version": "4.0.2",
   "description": "Balena client application shared settings",
   "main": "build/settings.js",
-  "types": "lib/settings.ts",
+  "types": "build/settings.d.ts",
   "homepage": "https://github.com/balena-io-modules/balena-settings-client",
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "build": "rimraf ./build && npm run prettify && tsc && npm run readme",
     "prepublish": "require-npm4-to-publish",
     "prepublishOnly": "npm test",
+    "prepare": "npm run build",
     "prettify": "prettier --config ./node_modules/resin-lint/config/.prettierrc --write \"lib/**/*.ts\" \"tests/**/*.ts\"",
     "readme": "jsdoc2md --template doc/README.hbs build/settings.js > README.md"
   },
