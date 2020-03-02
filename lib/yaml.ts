@@ -14,8 +14,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import * as _ from 'lodash';
-
 /**
  * @summary Parse a YAML string
  * @function
@@ -34,7 +32,7 @@ import * as _ from 'lodash';
 export const parse = (yaml: string): object => {
 	const jsYaml = require('js-yaml') as typeof import('js-yaml');
 	const result = jsYaml.safeLoad(yaml);
-	if (_.isString(result) || !result) {
+	if (typeof result === 'string' || !result) {
 		throw new Error(`Invalid YAML: ${yaml}`);
 	}
 	return result;
