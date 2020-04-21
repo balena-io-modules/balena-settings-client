@@ -3,9 +3,12 @@ import * as childProcess from 'child_process';
 import { stripIndent } from 'common-tags';
 import * as fs from 'fs';
 import * as _ from 'lodash';
-import * as m from 'mochainon';
+import { expect, use } from 'chai';
 import * as path from 'path';
 import * as wary from 'wary';
+import * as chaiAsPromised from 'chai-as-promised';
+
+use(chaiAsPromised);
 
 import config = require('../../lib/config');
 
@@ -53,16 +56,14 @@ wary.it(
 			registryUrl: getSetting('registryUrl'),
 			registry2Url: getSetting('registry2Url'),
 			proxyUrl: getSetting('proxyUrl'),
-		}).then(settings => {
-			m.chai.expect(settings.balenaUrl).to.equal('resin.io');
-			m.chai.expect(settings.apiUrl).to.equal('https://api.resin.io');
-			m.chai
-				.expect(settings.dashboardUrl)
-				.to.equal('https://dashboard.resin.io');
-			m.chai.expect(settings.vpnUrl).to.equal('vpn.resin.io');
-			m.chai.expect(settings.registryUrl).to.equal('registry.resin.io');
-			m.chai.expect(settings.registry2Url).to.equal('registry2.resin.io');
-			m.chai.expect(settings.proxyUrl).to.equal('resindevice.io');
+		}).then((settings) => {
+			expect(settings.balenaUrl).to.equal('resin.io');
+			expect(settings.apiUrl).to.equal('https://api.resin.io');
+			expect(settings.dashboardUrl).to.equal('https://dashboard.resin.io');
+			expect(settings.vpnUrl).to.equal('vpn.resin.io');
+			expect(settings.registryUrl).to.equal('registry.resin.io');
+			expect(settings.registry2Url).to.equal('registry2.resin.io');
+			expect(settings.proxyUrl).to.equal('resindevice.io');
 		});
 	},
 );
@@ -85,20 +86,16 @@ wary.it(
 			registryUrl: getSetting('registryUrl'),
 			registry2Url: getSetting('registry2Url'),
 			proxyUrl: getSetting('proxyUrl'),
-		}).then(settings => {
-			m.chai.expect(settings.balenaUrl).to.equal('balena-staging.com');
-			m.chai.expect(settings.apiUrl).to.equal('https://api.balena-staging.com');
-			m.chai
-				.expect(settings.dashboardUrl)
-				.to.equal('https://dashboard.balena-staging.com');
-			m.chai.expect(settings.vpnUrl).to.equal('vpn.balena-staging.com');
-			m.chai
-				.expect(settings.registryUrl)
-				.to.equal('registry.balena-staging.com');
-			m.chai
-				.expect(settings.registry2Url)
-				.to.equal('registry2.balena-staging.com');
-			m.chai.expect(settings.proxyUrl).to.equal('balena-staging-devices.com');
+		}).then((settings) => {
+			expect(settings.balenaUrl).to.equal('balena-staging.com');
+			expect(settings.apiUrl).to.equal('https://api.balena-staging.com');
+			expect(settings.dashboardUrl).to.equal(
+				'https://dashboard.balena-staging.com',
+			);
+			expect(settings.vpnUrl).to.equal('vpn.balena-staging.com');
+			expect(settings.registryUrl).to.equal('registry.balena-staging.com');
+			expect(settings.registry2Url).to.equal('registry2.balena-staging.com');
+			expect(settings.proxyUrl).to.equal('balena-staging-devices.com');
 		});
 	},
 );
@@ -124,18 +121,16 @@ wary.it('should give precedence to project configuration', {}, () => {
 		registryUrl: getSetting('registryUrl'),
 		registry2Url: getSetting('registry2Url'),
 		proxyUrl: getSetting('proxyUrl'),
-	}).then(settings => {
-		m.chai.expect(settings.balenaUrl).to.equal('balena.custom.com/');
-		m.chai.expect(settings.apiUrl).to.equal('https://api.balena.custom.com/');
-		m.chai
-			.expect(settings.dashboardUrl)
-			.to.equal('https://dashboard.balena.custom.com/');
-		m.chai.expect(settings.vpnUrl).to.equal('vpn.balena.custom.com/');
-		m.chai.expect(settings.registryUrl).to.equal('registry.balena.custom.com/');
-		m.chai
-			.expect(settings.registry2Url)
-			.to.equal('registry2.balena.custom.com/');
-		m.chai.expect(settings.proxyUrl).to.equal('devices.balena.custom.com/');
+	}).then((settings) => {
+		expect(settings.balenaUrl).to.equal('balena.custom.com/');
+		expect(settings.apiUrl).to.equal('https://api.balena.custom.com/');
+		expect(settings.dashboardUrl).to.equal(
+			'https://dashboard.balena.custom.com/',
+		);
+		expect(settings.vpnUrl).to.equal('vpn.balena.custom.com/');
+		expect(settings.registryUrl).to.equal('registry.balena.custom.com/');
+		expect(settings.registry2Url).to.equal('registry2.balena.custom.com/');
+		expect(settings.proxyUrl).to.equal('devices.balena.custom.com/');
 	});
 });
 
@@ -157,9 +152,9 @@ wary.it(
 		);
 		process.env.BALENARC_BALENA_URL = 'balenadev.custom.com/';
 
-		return m.chai
-			.expect(getSetting('balenaUrl'))
-			.to.eventually.equal('balenadev.custom.com/');
+		return expect(getSetting('balenaUrl')).to.eventually.equal(
+			'balenadev.custom.com/',
+		);
 	},
 );
 
@@ -167,7 +162,7 @@ wary.it('should be able to return all settings', {}, () => {
 	process.env.BALENARC_PROJECTS_DIRECTORY = '/usr/src/projects';
 	process.env.BALENARC_DATA_DIRECTORY = '/opt';
 
-	return m.chai.expect(getAll()).to.eventually.deep.equal({
+	return expect(getAll()).to.eventually.deep.equal({
 		balenaUrl: 'balenadev.custom.com/',
 		apiUrl: 'https://api.balenadev.custom.com/',
 		vpnUrl: 'vpn.balenadev.custom.com/',
@@ -195,14 +190,12 @@ wary.it('should be rejected if the config file is malformed', {}, () => {
 		`,
 	);
 
-	return m.chai
-		.expect(getAll())
-		.to.be.rejectedWith('Error parsing config file');
+	return expect(getAll()).to.be.rejectedWith('Error parsing config file');
 });
 
 wary
 	.run()
-	.catch(error => {
+	.catch((error) => {
 		console.error(`ERROR: ${error.message}`, error.stack);
 		process.exit(1);
 	})
