@@ -1,14 +1,14 @@
+import { expect } from 'chai';
 import { stripIndent } from 'common-tags';
-import * as m from 'mochainon';
 
 import * as yaml from '../lib/yaml';
 
 describe('YAML:', () => {
 	describe('.parse()', () => {
 		it('should throw an error if invalid input', () =>
-			m.chai
-				.expect(() => yaml.parse('hello;world\n- foo'))
-				.to.throw('Invalid YAML: hello;world\n- foo'));
+			expect(() => yaml.parse('hello;world\n- foo')).to.throw(
+				'Invalid YAML: hello;world\n- foo',
+			));
 
 		it('should be able to parse strings', () => {
 			const result = yaml.parse(stripIndent`
@@ -16,7 +16,7 @@ describe('YAML:', () => {
 				foo: 'bar'
 			`);
 
-			m.chai.expect(result).to.deep.equal({
+			expect(result).to.deep.equal({
 				hello: 'world',
 				foo: 'bar',
 			});
@@ -27,7 +27,7 @@ describe('YAML:', () => {
 				phone: 12345
 			`);
 
-			m.chai.expect(result).to.deep.equal({
+			expect(result).to.deep.equal({
 				phone: 12345,
 			});
 		});
@@ -40,7 +40,7 @@ describe('YAML:', () => {
 				- baz
 			`);
 
-			m.chai.expect(result).to.deep.equal({
+			expect(result).to.deep.equal({
 				list: ['foo', 'bar', 'baz'],
 			});
 		});
