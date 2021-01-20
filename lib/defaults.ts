@@ -102,6 +102,14 @@ export = {
 	},
 
 	/**
+	 * @property {Function} tunnelUrl - Balena Tunnel url
+	 * @memberof defaults
+	 */
+	tunnelUrl() {
+		return `tunnel.${this.balenaUrl}`;
+	},
+
+	/**
 	 * @property {String} dataDirectory - data directory path
 	 * @memberof defaults
 	 */

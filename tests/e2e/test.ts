@@ -172,6 +172,7 @@ wary.it('should be able to return all settings', {}, () => {
 		deltaUrl: 'https://delta.balenadev.custom.com/',
 		dashboardUrl: 'https://dashboard.balenadev.custom.com/',
 		proxyUrl: 'devices.balenadev.custom.com/',
+		tunnelUrl: 'tunnel.balenadev.custom.com/',
 		dataDirectory: '/opt',
 		cacheDirectory: path.join('/opt', 'cache'),
 		binDirectory: path.join('/opt', 'bin'),
