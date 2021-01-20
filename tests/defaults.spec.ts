@@ -114,6 +114,18 @@ describe('Defaults:', () => {
 		});
 	});
 
+	describe('.tunnelUrl', () => {
+		it('should be a valid url', () => {
+			const setting = utils.evaluateSetting<string>(defaults, 'tunnelUrl');
+			expect(() => url.parse(setting)).to.not.throw(Error);
+		});
+
+		it('should not contain a protocol', () => {
+			const setting = utils.evaluateSetting<string>(defaults, 'tunnelUrl');
+			expect(url.parse(setting).protocol).to.not.exist;
+		});
+	});
+
 	describe('.dataDirectory', () =>
 		it('should be an absolute path', () => {
 			const setting = utils.evaluateSetting<string>(defaults, 'dataDirectory');
