@@ -67,14 +67,10 @@ describe('Defaults:', () => {
 	});
 
 	describe('.imageMakerUrl', () => {
-		it('should be a valid url', () => {
-			const setting = utils.evaluateSetting<string>(defaults, 'imageMakerUrl');
-			expect(() => url.parse(setting)).to.not.throw(Error);
-		});
-
-		it('should contain an https protocol', () => {
-			const setting = utils.evaluateSetting<string>(defaults, 'imageMakerUrl');
-			expect(url.parse(setting).protocol).to.equal('https:');
+		it('should throw', () => {
+			expect(() =>
+				utils.evaluateSetting<string>(defaults, 'imageMakerUrl'),
+			).to.throw(Error, 'Setting not found: imageMakerUrl');
 		});
 	});
 

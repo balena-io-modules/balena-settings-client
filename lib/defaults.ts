@@ -63,14 +63,6 @@ export = {
 	},
 
 	/**
-	 * @property {Function} imageMakerUrl - Balena Image Maker url
-	 * @memberof defaults
-	 */
-	imageMakerUrl() {
-		return `https://img.${this.balenaUrl}`;
-	},
-
-	/**
 	 * @property {Function} deltaUrl - Balena Delta url
 	 * @memberof defaults
 	 */

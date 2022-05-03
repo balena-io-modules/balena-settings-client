@@ -168,7 +168,6 @@ wary.it('should be able to return all settings', {}, () => {
 		vpnUrl: 'vpn.balenadev.custom.com/',
 		registryUrl: 'registry.balenadev.custom.com/',
 		registry2Url: 'registry2.balenadev.custom.com/',
-		imageMakerUrl: 'https://img.balenadev.custom.com/',
 		deltaUrl: 'https://delta.balenadev.custom.com/',
 		dashboardUrl: 'https://dashboard.balenadev.custom.com/',
 		proxyUrl: 'devices.balenadev.custom.com/',
