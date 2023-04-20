@@ -74,13 +74,13 @@ That specific environment will have the following configuration:
 
 
 * [settings](#module_settings)
-    * [.get(name)](#module_settings.get) ⇒ <code>\*</code>
-    * [.getAll()](#module_settings.getAll) ⇒ <code>Object</code>
+    * [~get(name)](#module_settings..get) ⇒ <code>\*</code>
+    * [~getAll()](#module_settings..getAll) ⇒ <code>Object</code>
 
-<a name="module_settings.get"></a>
+<a name="module_settings..get"></a>
 
-### settings.get(name) ⇒ <code>\*</code>
-**Kind**: static method of [<code>settings</code>](#module_settings)  
+### settings~get(name) ⇒ <code>\*</code>
+**Kind**: inner method of [<code>settings</code>](#module_settings)  
 **Summary**: Get a setting  
 **Returns**: <code>\*</code> - setting value  
 **Access**: public  
@@ -93,10 +93,10 @@ That specific environment will have the following configuration:
 ```js
 settings.get('dataDirectory')
 ```
-<a name="module_settings.getAll"></a>
+<a name="module_settings..getAll"></a>
 
-### settings.getAll() ⇒ <code>Object</code>
-**Kind**: static method of [<code>settings</code>](#module_settings)  
+### settings~getAll() ⇒ <code>Object</code>
+**Kind**: inner method of [<code>settings</code>](#module_settings)  
 **Summary**: Get all settings  
 **Returns**: <code>Object</code> - all settings  
 **Access**: public  

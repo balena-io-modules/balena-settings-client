@@ -32,7 +32,7 @@
   "author": "Juan Cruz Viotti <juan@balena.io>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@balena/lint": "^5.0.4",
+    "@balena/lint": "^6.2.2",
     "@resin.io/types-wary": "1.1.1",
     "@types/bluebird": "^3.5.30",
     "@types/chai": "^4.2.11",
@@ -50,8 +50,8 @@
     "mocha": "^6.2.3",
     "require-npm4-to-publish": "^1.0.0",
     "rimraf": "^3.0.2",
-    "ts-node": "^8.9.0",
-    "typescript": "^3.8.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4",
     "wary": "^1.1.0"
   },
   "dependencies": {
