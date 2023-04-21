@@ -1,0 +1,533 @@
+- commits:
+    - subject: Update Typescript to v5.0.2 to fix master
+      hash: f83a096015ccb7bdd6195c8cc0fbbe16ce62ae5f
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+    - subject: Disable package-lock.json generation
+      hash: 0d34edef901f9286b9da600e40e0a6bd5a6c2509
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+    - subject: Replace balenaCI with flowzone
+      hash: aa53a123c6580312b57aada8e7478dac6d0f6d0a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+  version: 5.0.2
+  title: ""
+  date: 2023-04-21T07:02:57.392Z
+- version: 5.0.1
+  date: 2022-05-03T07:24:50Z
+  commits:
+    - hash: e091801f3412c5e860d10e0d5a20b4684d148c8a
+      author: Thodoris Greasidis
+      footers:
+        change-type: patch
+      subject: Stop running tests on appveyor
+      body: null
+- version: 5.0.0
+- date: 2022-05-03T07:15:40Z
+- commits:
+    - hash: 6f70bda41730cb77e8c21463e42e895283201304
+- commits:
+    - author: Thodoris Greasidis
+- commits:
+    - footers:
+        change-type: major
+- commits:
+    - footers:
+        signed-off-by: Thodoris Greasidis <thodoris@balena.io>
+- commits:
+    - subject: Drop the imageMakerUrl default setting
+- commits:
+    - body: null
+- version: 4.0.7
+- date: 2021-06-30T21:18:00Z
+- commits:
+    - hash: d6d87f184d96bf12f50768b477791b63363a7d59
+- commits:
+    - author: Thodoris Greasidis
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        see: https://www.flowdock.com/app/rulemotion/pub/threads/trLcZFnSX9fLZn4LiaIv4xuBbah
+- commits:
+    - subject: Delete CODEOWNERS
+- commits:
+    - body: null
+- version: 4.0.6
+- date: 2021-01-20T13:38:36Z
+- commits:
+    - hash: 1ba76321fb0fee86644ab5c5f1c23ed25c921eeb
+- commits:
+    - author: Rich Bayliss
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Rich Bayliss <rich@balena.io>
+- commits:
+    - subject: "defaults: Add tunnelUrl to return a computed value"
+- commits:
+    - body: |-
+        Expose the Url a client should use to access the tunnel service for
+        their devices.
+- version: 4.0.5
+- date: 2020-04-21T11:49:48Z
+- commits:
+    - hash: 612a48ec4bc90d79480f187697c9cae1dc8299cc
+- commits:
+    - author: Pagan Gazzard
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - subject: Update dev dependencies
+- commits:
+    - body: null
+- version: 4.0.4
+- date: 2020-03-02T16:44:08Z
+- commits:
+    - hash: df578e48b76c290bb600ed1f99c9070bfed9a0d0
+- commits:
+    - author: Pagan Gazzard
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - subject: Lazy-load js-yaml
+- commits:
+    - body: null
+- commits:
+    - hash: 45df10847d49e5d89e9414e5d401114245c5e6ee
+- commits:
+    - author: Pagan Gazzard
+- commits:
+    - subject: Remove unnecessary lodash usage
+- commits:
+    - body: null
+- version: 4.0.3
+- date: 2020-02-28T16:28:40Z
+- commits:
+    - hash: 504cf994b87f15f71f532f00094ce5ed750b73d3
+- commits:
+    - author: Pagan Gazzard
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - subject: Do not include build output in the repo
+- commits:
+    - body: null
+- commits:
+    - hash: 4f3e00e719e26818908f67127f2113f4fcdd0d21
+- commits:
+    - author: Pagan Gazzard
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - subject: Use declaration files for the types
+- commits:
+    - body: null
+- version: 4.0.2
+- date: 2019-09-12T09:06:49Z
+- commits:
+    - hash: aef8af30403af7068132bdf8be21ea8e77f6b134
+- commits:
+    - author: Heds Simons
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Heds Simons <heds@balena.io>
+- commits:
+    - subject: "dependencies: Update dependencies and build rules"
+- commits:
+    - body: |-
+        Ensures the component is up to date, along with
+        changes to Typescript and linting.
+        Also ensure we run and publish from balenaCI
+        rather than AppVeyor and Circle.
+- version: 4.0.1
+- date: 2018-10-24T16:39:23Z
+- commits:
+    - hash: 8f12973485bb040992f0fbfad07ef67ad4ee634b
+- commits:
+    - author: Tim Perry
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - subject: Continue to support RESINRC_ environment variables
+- commits:
+    - body: null
+- commits:
+    - hash: 5e43ab7118bd03b72bba0c1e6f859f49bdb1eb22
+- commits:
+    - author: Tim Perry
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - subject: Continue to support resinrc.yml config files
+- commits:
+    - body: null
+- version: 4.0.0
+- date: 2018-10-15T18:01:27Z
+- commits:
+    - hash: fdecefd7051a8e94330b03f1eb17f877c12e453d
+- commits:
+    - author: Tim Perry
+- commits:
+    - footers:
+        change-type: major
+- commits:
+    - footers:
+        signed-off-by: Tim Perry <tim@resin.io>
+- commits:
+    - subject: Rename everything 'resin' to 'balena'
+- commits:
+    - body: null
+- version: 3.8.8
+- date: 2018-07-20T14:46:50Z
+- commits:
+    - hash: 1133a4fe396cf5b0549322f4144951b056f9475c
+- commits:
+    - author: Tim Perry
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - subject: Re-enable testing in Node 10
+- commits:
+    - body: Disabled in 47f1d300378bdef8019313c02bbb44dd49b65839 due to node bugs
+- version: 3.8.7
+- date: 2018-05-02T18:31:41Z
+- commits:
+    - hash: 0632655992d735933eb44821990de04fe617aa11
+- commits:
+    - author: Tim Perry
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - subject: Fix deploy attach_workspace configuration
+- commits:
+    - body: |-
+        It appears this doesn't expand environment variables, so in fact
+        is creating a path containing a $, which breaks all sorts of
+        things, and definitely isn't necessary. Hopefully relative
+        paths will fix this (but there's no way to tell other than
+        PRing)
+- version: 3.8.6
+- date: 2018-05-02T12:34:47Z
+- commits:
+    - hash: b47f6e22442ec456e89e69da610c7c2bb024d120
+- commits:
+    - author: Tim Perry
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - subject: Deploy using node 8 + npm 4
+- commits:
+    - body: |-
+        This fixes issues deploying with node 6 + npm 4, where we
+        hit problems with https://github.com/npm/npm/issues/15558,
+        which seem to be solved in newer node versions
+- version: 3.8.5
+- date: 2018-04-25T15:23:27Z
+- commits:
+    - hash: d4485dd0cdfcdf1a5ce6d6d617e8759e4e07013c
+- commits:
+    - author: Tim Perry
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - subject: Stick with home-or-tmp version 2, for max engine compatibility
+- commits:
+    - body: |-
+        The only difference is that v3 drops support for old JS engines, and
+        this is slightly awkward in other places where we're testing with
+        phantomjs. Would be nice to update those places eventually, but for now
+        this is the far easier short-term fix.
+- commits:
+    - hash: 0fbca12dbaa908ead68480ec15558289a5b3f06d
+- commits:
+    - author: Tim Perry
+- commits:
+    - subject: Fix broken typings due to js-yaml changes
+- commits:
+    - body: null
+- commits:
+    - hash: 682d058481856b585f0d6ea367c09c96cc795b03
+- commits:
+    - author: Tim Perry
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - subject: Pin all type packages
+- commits:
+    - body: null
+- commits:
+    - hash: 7854b5fc3c092886cf8712c1e3c9f65a9976a293
+- commits:
+    - author: Tim Perry
+- commits:
+    - subject: Prettier formatting change
+- commits:
+    - body: null
+- commits:
+    - hash: 47f1d300378bdef8019313c02bbb44dd49b65839
+- commits:
+    - author: Tim Perry
+- commits:
+    - subject: Temporarily stop testing in latest Node due to a Node 10 bug
+- commits:
+    - body: |-
+        Tests fail due to https://github.com/nodejs/node/issues/20258. We can
+        and should re-enable this once that's been released.
+- commits:
+    - hash: 4eb5d589d277d6e0f04c04f97f551da8c9a35d62
+- commits:
+    - author: Tim Perry
+- commits:
+    - subject: Use the default npm for each node version
+- commits:
+    - body: null
+- version: 3.8.4
+- date: 2017-12-13T14:54:35Z
+- commits:
+    - hash: 594bb4a948ebafaba15b387b604a2f5680d2cc3a
+- commits:
+    - author: Tim Perry
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - subject: Fix bug in e2e tests that breaks deployment
+- commits:
+    - body: null
+- version: 3.8.3
+- date: 2017-12-13T13:04:34Z
+- commits:
+    - hash: 25aa7d42d126bdef5f4d84bb68376ec11f5b75cc
+- commits:
+    - author: Tim Perry
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - subject: Make sure we have the correct version of npm in circle to publish
+- commits:
+    - body: null
+- commits:
+    - hash: c632948ea16a171d65a1171f4a8e31c866291f17
+- commits:
+    - author: Tim Perry
+- commits:
+    - subject: Use the correct npm in deploys, not just in builds
+- commits:
+    - body: null
+- version: 3.8.2
+- date: 2017-12-12T11:19:49Z
+- commits:
+    - hash: 54cc5bd4ad3acd874a2c0977e862e2923f606f2a
+- commits:
+    - author: Tim Perry
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - subject: Set up circleci npm autopublishing
+- commits:
+    - body: null
+- version: 3.8.1
+- date: 2017-11-01T17:19:33Z
+- commits:
+    - hash: ccc915c0e38aee060446f064ebb8288d4e2d472a
+- commits:
+    - author: Tim Perry
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - subject: Reformat changelog to add versionbot
+- commits:
+    - body: null
+- commits:
+    - hash: e6d0b26fd5e640d4efe24a2286e3e9487232337c
+- commits:
+    - author: Tim Perry
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - subject: Fix typings broken (correctly) by lodash type updates
+- commits:
+    - body: null
+- version: 3.8.0
+- date: 2017-09-25T10:38:34Z
+- commits:
+    - hash: 6a5f72a03b25911c1e4c516f4252e8545274d935
+- commits:
+    - author: Alexis Svinartchouk
+- commits:
+    - subject: v3.8.0
+- commits:
+    - body: null
+- commits:
+    - hash: dff62917c9f5db0a200a18669bb90dc79afa846a
+- commits:
+    - author: Alexis Svinartchouk
+- commits:
+    - footers:
+        change-type: minor
+- commits:
+    - subject: Add registry2Url
+- commits:
+    - body: "Connects-To: #42"
+- version: 3.7.0
+- date: 2017-08-31T13:04:54Z
+- commits:
+    - hash: f80930de4989c6d288615781779c1c05a977125f
+- commits:
+    - author: Eugene Mirotin
+- commits:
+    - footers:
+        change-type: major
+- commits:
+    - subject: Convert to TypeScript
+- commits:
+    - body: null
+- version: 3.6.1
+- date: 2017-04-21T21:43:35Z
+- commits:
+    - hash: b9e8035bbbe899d45be66225439841da474d0968
+- commits:
+    - author: Eugene Mirotin
+- commits:
+    - subject: better and more descriptive error
+- commits:
+    - body: null
+- commits:
+    - hash: a980f7f9e7ebc6c9a62e7a6327a847977fffc6e1
+- commits:
+    - author: Eugene Mirotin
+- commits:
+    - subject: add CS header
+- commits:
+    - body: null
+- version: 3.6.0
+- date: 2017-04-19T14:39:29Z
+- commits:
+    - hash: d6504fd43a4d4353546f2f1c49b961c4352538c3
+- commits:
+    - author: Cameron Diver
+- commits:
+    - footers:
+        change-type: minor
+- commits:
+    - footers:
+        signed-off-by: Cameron Diver <cameron@resin.io>
+- commits:
+    - subject: Add bin directory to resin settings
+- commits:
+    - body: |-
+        The bin directory will be used to store binaries used by resin-cli,
+        among other pieces of infrastructure.
+- version: 3.5.2
+- date: 2016-10-03T23:47:46Z
+- commits:
+    - hash: 449de15227527030a0ebc0670dbb2832fdee3fc0
+- commits:
+    - author: Eugene Mirotin
+- commits:
+    - subject: "Cosmetic changes:"
+- commits:
+    - body: |-
+        standardize package.json
+        slightly improve the code in settings.coffee
+        update dev dependencies
+        DRY tests a bit
+        update lodash to v4
+        rebuild lib/
+- commits:
+    - hash: d519f6cf44d5011cf8cbdb0e92aa4445606b040c
+- commits:
+    - author: Eugene Mirotin
+- commits:
+    - subject: update to coffee-script 1.11.0
+- commits:
+    - body: null
+- commits:
+    - hash: 66f9415bd5f9597ea5ff3d7eb4efc9eccc825970
+- commits:
+    - author: Juan Cruz Viotti
+- commits:
+    - footers:
+        fixes: https://github.com/resin-io-modules/resin-settings-client/issues/34
+- commits:
+    - footers:
+        signed-off-by: Juan Cruz Viotti <jviotti@openmailbox.org>
+- commits:
+    - subject: Move to resin-io-modules organisation
+- commits:
+    - body: null
+- commits:
+    - hash: 1739de0685e647e66667d88679cb4eb7ea1129aa
+- commits:
+    - author: Eugene Mirotin
+- commits:
+    - subject: make settings lazy-loaded when they are needed
+- commits:
+    - body: null
+- commits:
+    - hash: f27eae5283f3bd1fa94c578d1ac07a5a1b037e1a
+- commits:
+    - author: Kostas Lekkas
+- commits:
+    - subject: Add proxyUrl setting
+- commits:
+    - body: null
+- commits:
+    - hash: c4c96a77aa664fec1803f56aa6fac2e4a950cefe
+- commits:
+    - author: Juan Cruz Viotti
+- commits:
+    - footers:
+        signed-off-by: Juan Cruz Viotti <jviottidc@gmail.com>
+- commits:
+    - subject: Fix per-project configuration file path in README
+- commits:
+    - body: null
+- commits:
+    - hash: 5c1f608b26b764d4cd5005a9dfd34432ab8e29a7
+- commits:
+    - author: Juan Cruz Viotti
+- commits:
+    - subject: Make use of hidepath to replace utils.addHiddenPathPrefix
+- commits:
+    - body: null
+- commits:
+    - hash: c512ea2c652de1b67824665e0123d5252687359d
+- commits:
+    - author: Juan Cruz Viotti
+- commits:
+    - subject: Upgrade NPM version in Appveyor
+- commits:
+    - body: null
