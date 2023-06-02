@@ -103,6 +103,7 @@ describe('Utils:', () => {
 				{
 					greeting: 'Hola',
 					foo() {
+						// @ts-expect-error
 						return `${this.greeting} from balena!`;
 					},
 				},
