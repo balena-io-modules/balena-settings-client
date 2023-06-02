@@ -81,5 +81,5 @@ export const isSettingVariable = (variable: string) =>
 export const parse = (environment: { [k: string]: string | undefined }) =>
 	_.chain(environment)
 		.pickBy((v: string | undefined, k: string) => isSettingVariable(k) && !!v)
-		.mapKeys((_v: string, k: string) => getSettingName(k))
+		.mapKeys((_v, k) => getSettingName(k))
 		.value();
