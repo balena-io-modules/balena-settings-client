@@ -2,7 +2,6 @@ import * as Promise from 'bluebird';
 import * as childProcess from 'child_process';
 import { stripIndent } from 'common-tags';
 import * as fs from 'fs';
-import * as _ from 'lodash';
 import { expect, use } from 'chai';
 import * as path from 'path';
 import * as wary from 'wary';
@@ -18,7 +17,7 @@ const execAsync = Promise.promisify<[string, string], string, any>(
 );
 
 const handleExecResult = (stdout: string, stderr: string) => {
-	if (!_.isEmpty(stderr)) {
+	if (stderr.length > 0) {
 		throw new Error(stderr);
 	}
 	return stdout.replace(/\n$/, '');

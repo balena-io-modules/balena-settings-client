@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import * as _ from 'lodash';
+import { camelCase } from 'es-toolkit';
 
 /**
  * @summary Get setting name from environment variable
@@ -35,7 +35,7 @@ export const getSettingName = (variable?: string) => {
 	if (!variable) {
 		throw new Error('Missing variable name');
 	}
-	return _.camelCase(
+	return camelCase(
 		variable
 			.replace(/^(BALENARC|RESINRC)_/i, '')
 			.replace(/(^|_)RESIN(_|$)/, '$1BALENA$2'),
@@ -79,7 +79,8 @@ export const isSettingVariable = (variable: string) =>
  * > }
  */
 export const parse = (environment: { [k: string]: string | undefined }) =>
-	_.chain(environment)
-		.pickBy((v: string | undefined, k: string) => isSettingVariable(k) && !!v)
-		.mapKeys((_v, k) => getSettingName(k))
-		.value();
+	Object.fromEntries(
+		Object.entries(environment)
+			.filter(([k, v]) => isSettingVariable(k) && !!v)
+			.map(([k, v]) => [getSettingName(k), v]),
+	);

@@ -16,7 +16,10 @@ describe('Utils:', () => {
 
 			const third = { hello: 'world' };
 
-			const result = utils.mergeObjects(first, second, third);
+			const result = [first, second, third].reduce((acc, source) => {
+				return utils.mergeObjects(acc, source);
+			}, {});
+
 			expect(result).to.deep.equal({
 				hello: 'world',
 				foo: 'baz',
@@ -42,7 +45,9 @@ describe('Utils:', () => {
 				},
 			};
 
-			const result = utils.mergeObjects(first, second, third);
+			const result = [first, second, third].reduce((acc, source) => {
+				return utils.mergeObjects(acc, source);
+			}, {}) as Record<string, () => string>;
 			expect(result.foo()).to.equal('third');
 		});
 	});

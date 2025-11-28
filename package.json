@@ -58,11 +58,10 @@
     "@resin.io/types-hidepath": "1.0.1",
     "@resin.io/types-home-or-tmp": "3.0.0",
     "@types/js-yaml": "3.11.1",
-    "@types/lodash": "^4.14.195",
+    "es-toolkit": "^1.42.0",
     "hidepath": "^1.0.0",
     "home-or-tmp": "^2.0.0",
-    "js-yaml": "^3.4.0",
-    "lodash": "^4.17.15"
+    "js-yaml": "^3.4.0"
   },
   "husky": {
     "hooks": {

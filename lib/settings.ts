@@ -60,7 +60,7 @@ limitations under the License.
  */
 
 import * as fs from 'fs';
-import * as _ from 'lodash';
+import { once } from 'es-toolkit';
 
 import config = require('./config');
 import defaults = require('./defaults');
@@ -91,10 +91,15 @@ const readConfigFile = (file: string): object => {
 };
 
 const replaceResinKeys = (parsedConfig: object) =>
-	_.mapKeys(parsedConfig, (_value, key) => key.replace('resin', 'balena'));
+	Object.fromEntries(
+		Object.entries(parsedConfig).map(([key, value]) => [
+			key.replace('resin', 'balena'),
+			value,
+		]),
+	);
 
-const getSettings = _.once((): { [k: string]: string | undefined } =>
-	utils.mergeObjects(
+const getSettings = once((): { [k: string]: string | undefined } => {
+	const settingsSources = [
 		{},
 		defaults,
 		replaceResinKeys(readConfigFile(config.paths.userLegacy)),
@@ -102,8 +107,12 @@ const getSettings = _.once((): { [k: string]: string | undefined } =>
 		replaceResinKeys(readConfigFile(config.paths.projectLegacy)),
 		readConfigFile(config.paths.project),
 		environment.parse(process.env),
-	),
-);
+	];
+
+	return settingsSources.reduce((acc, source) => {
+		return utils.mergeObjects(acc, source);
+	}, {}) as Record<string, string | undefined>;
+});
 
 /**
  * @summary Get a setting
@@ -133,5 +142,8 @@ export const get = <T>(name: string): T => {
  */
 export const getAll = () => {
 	const settings = getSettings();
-	return _.mapValues(settings, (_setting, name) => get(name));
+	for (const name of Object.keys(settings)) {
+		settings[name] = get(name);
+	}
+	return settings;
 };
