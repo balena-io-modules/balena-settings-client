@@ -29,7 +29,7 @@
     "prettify": "balena-lint --typescript --fix lib tests",
     "readme": "jsdoc2md --template doc/README.hbs build/settings.js > README.md"
   },
-  "author": "Juan Cruz Viotti <juan@balena.io>",
+  "author": "Balena Ltd. <hello@balena.io>",
   "license": "Apache-2.0",
   "devDependencies": {
     "@balena/lint": "^6.2.2",
