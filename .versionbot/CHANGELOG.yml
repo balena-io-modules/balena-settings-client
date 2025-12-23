@@ -1,4 +1,20 @@
 - commits:
+    - subject: Move internal typing dependencies to devDependencies
+      hash: 67f59074695dce97dd47ac85548561f83fc2e59a
+      body: |
+        The generated .d.ts files do not include any
+        import from those files, which makes them
+        concealed/internal devDependencies only.
+      footer:
+        Change-type: patch
+        change-type: patch
+        See: https://balena.fibery.io/Work/Project/1895
+        see: https://balena.fibery.io/Work/Project/1895
+      author: Thodoris Greasidis
+  version: 6.0.2
+  title: ""
+  date: 2025-12-23T22:09:16.962Z
+- commits:
     - subject: Fix node engine version requirements
       hash: 435893a6da9eb1efab4504eae5c91259ba834ebc
       body: ""
