@@ -8,11 +8,6 @@ describe('Utils:', () => {
 				'Setting not found: foo',
 			));
 
-		it('should throw an error if the settings object is not defined', () =>
-			expect(() => utils.evaluateSetting(null, 'foo')).to.throw(
-				'Setting not found: foo',
-			));
-
 		it('should return the setting if it is a string', () => {
 			const setting = utils.evaluateSetting({ foo: 'bar' }, 'foo');
 
@@ -29,15 +24,6 @@ describe('Utils:', () => {
 			const setting = utils.evaluateSetting({ foo: [1, 2, 3] }, 'foo');
 
 			expect(setting).to.deep.equal([1, 2, 3]);
-		});
-
-		it('should evaluate deep settings', () => {
-			const setting = utils.evaluateSetting(
-				{ foo: { bar: { baz: 'qux' } } },
-				'foo.bar.baz',
-			);
-
-			expect(setting).to.equal('qux');
 		});
 
 		it('should evaluate the result of a function', () => {
@@ -58,7 +44,6 @@ describe('Utils:', () => {
 				{
 					greeting: 'Hola',
 					foo() {
-						// @ts-expect-error
 						return `${this.greeting} from balena!`;
 					},
 				},

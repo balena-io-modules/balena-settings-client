@@ -14,15 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { get } from "es-toolkit/compat";
-
 /**
  * @summary Evaluate a setting property
  * @function
  * @protected
  *
  * @param {Object} [settings={}] - settings
- * @param {String} property - period separated property
+ * @param {String} property - key of settings
  * @returns {*} setting value
  *
  * @throws Will throw if setting is not found.
@@ -49,16 +47,16 @@ import { get } from "es-toolkit/compat";
  * > Hola World
  */
 export const evaluateSetting = <T>(
-	settings: object | undefined | null = {},
-	property: string
+	settings: Record<string, any>,
+	property: string,
 ): T => {
-	let value = get(settings, property);
+	let value = settings[property as keyof typeof settings];
 
 	if (value == null) {
 		throw new Error(`Setting not found: ${property}`);
 	}
 
-	if (typeof value === "function") {
+	if (typeof value === 'function') {
 		// This enables nifty things like dynamic
 		// settings that rely on other settings
 		value = value.call(settings);
