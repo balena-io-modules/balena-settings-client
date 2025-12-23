@@ -60,7 +60,7 @@ limitations under the License.
  */
 
 import * as fs from 'fs';
-import { once } from 'es-toolkit';
+import { once, merge } from 'es-toolkit';
 
 import config = require('./config');
 import defaults = require('./defaults');
@@ -90,17 +90,21 @@ const readConfigFile = (file: string): object => {
 	}
 };
 
-const replaceResinKeys = (parsedConfig: object) =>
-	Object.fromEntries(
+const replaceResinKeys = (parsedConfig: object) => {
+	if (parsedConfig == null) {
+		return parsedConfig;
+	}
+	return Object.fromEntries(
 		Object.entries(parsedConfig).map(([key, value]) => [
 			key.replace('resin', 'balena'),
 			value,
 		]),
 	);
+};
 
 const getSettings = once((): { [k: string]: string | undefined } => {
+	const result = {};
 	const settingsSources = [
-		{},
 		defaults,
 		replaceResinKeys(readConfigFile(config.paths.userLegacy)),
 		readConfigFile(config.paths.user),
@@ -109,9 +113,10 @@ const getSettings = once((): { [k: string]: string | undefined } => {
 		environment.parse(process.env),
 	];
 
-	return settingsSources.reduce((acc, source) => {
-		return utils.mergeObjects(acc, source);
-	}, {}) as Record<string, string | undefined>;
+	for (const source of settingsSources) {
+		merge(result, source);
+	}
+	return result;
 });
 
 /**

@@ -2,56 +2,6 @@ import { expect } from 'chai';
 import * as utils from '../lib/utils';
 
 describe('Utils:', () => {
-	describe('.mergeObjects()', () => {
-		it('should be able to merge many objects', () => {
-			const first = {
-				hello: 'world',
-				foo: 'bar',
-			};
-
-			const second = {
-				hello: 'world!',
-				foo: 'baz',
-			};
-
-			const third = { hello: 'world' };
-
-			const result = [first, second, third].reduce((acc, source) => {
-				return utils.mergeObjects(acc, source);
-			}, {});
-
-			expect(result).to.deep.equal({
-				hello: 'world',
-				foo: 'baz',
-			});
-		});
-
-		it('should be able to merge function properties', () => {
-			const first = {
-				foo() {
-					return 'first';
-				},
-			};
-
-			const second = {
-				foo() {
-					return 'second';
-				},
-			};
-
-			const third = {
-				foo() {
-					return 'third';
-				},
-			};
-
-			const result = [first, second, third].reduce((acc, source) => {
-				return utils.mergeObjects(acc, source);
-			}, {}) as Record<string, () => string>;
-			expect(result.foo()).to.equal('third');
-		});
-	});
-
 	describe('.evaluateSetting()', () => {
 		it('should throw an error if the setting is not found', () =>
 			expect(() => utils.evaluateSetting({}, 'foo')).to.throw(
