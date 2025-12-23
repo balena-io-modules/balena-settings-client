@@ -12,7 +12,8 @@
     "preserveConstEnums": true,
     "pretty": true,
     "sourceMap": true,
-    "lib": ["es5", "es6"],
+    "lib": ["es5", "es6", "es2019"],
+    "skipLibCheck": true,
     "typeRoots": [
       "node_modules/@types",
       "node_modules/@resin.io"

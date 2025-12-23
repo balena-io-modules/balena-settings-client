@@ -29,23 +29,24 @@
     "prettify": "balena-lint --typescript --fix lib tests",
     "readme": "jsdoc2md --template doc/README.hbs build/settings.js > README.md"
   },
-  "author": "Juan Cruz Viotti <juan@balena.io>",
+  "author": "Balena Ltd. <hello@balena.io>",
   "license": "Apache-2.0",
+  "engines": {
+    "node": "^20.12.0"
+  },
   "devDependencies": {
     "@balena/lint": "^6.2.2",
     "@resin.io/types-wary": "1.1.1",
-    "@types/bluebird": "^3.5.30",
     "@types/chai": "^4.2.11",
     "@types/chai-as-promised": "^7.1.2",
     "@types/common-tags": "^1.8.0",
     "@types/mocha": "^5.2.7",
-    "@types/node": "^8.10.60",
-    "bluebird": "^3.7.2",
+    "@types/node": "^20.19.27",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "common-tags": "^1.8.0",
     "husky": "^4.2.5",
-    "jsdoc-to-markdown": "^5.0.1",
+    "jsdoc-to-markdown": "^9.1.3",
     "lint-staged": "^10.1.6",
     "mocha": "^6.2.3",
     "require-npm4-to-publish": "^1.0.0",
@@ -58,11 +59,10 @@
     "@resin.io/types-hidepath": "1.0.1",
     "@resin.io/types-home-or-tmp": "3.0.0",
     "@types/js-yaml": "3.11.1",
-    "@types/lodash": "^4.14.195",
+    "es-toolkit": "^1.42.0",
     "hidepath": "^1.0.0",
     "home-or-tmp": "^2.0.0",
-    "js-yaml": "^3.4.0",
-    "lodash": "^4.17.15"
+    "js-yaml": "^3.4.0"
   },
   "husky": {
     "hooks": {

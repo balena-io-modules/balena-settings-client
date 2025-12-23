@@ -14,42 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import * as _ from 'lodash';
-
-/**
- * @summary Merge objects into one
- * @function
- * @protected
- *
- * @description
- * The last passed objects have precedence over the first ones.
- *
- * @param {...Object} objects - input objects
- * @returns {Object} merged object
- *
- * @example
- * const first = { foo: 'bar' }
- * const second = { foo: 'baz' }
- * const third = { foo: 'qux' }
- *
- * console.log(utils.mergeObjects(first, second, third))
- * > { foo: 'qux' }
- */
-
-// Notice that this function equals `_.merge` and thus the latter
-// could be used directly, making this function declaration unnecessary.
-// However, we decided to create a new function for this in order to
-// test specific behaviour that affects this module, like function
-// merging.
-export const mergeObjects = _.merge;
-
 /**
  * @summary Evaluate a setting property
  * @function
  * @protected
  *
  * @param {Object} [settings={}] - settings
- * @param {String} property - period separated property
+ * @param {String} property - key of settings
  * @returns {*} setting value
  *
  * @throws Will throw if setting is not found.
@@ -76,16 +47,16 @@ export const mergeObjects = _.merge;
  * > Hola World
  */
 export const evaluateSetting = <T>(
-	settings: object | undefined | null = {},
+	settings: Record<string, any>,
 	property: string,
 ): T => {
-	let value = _.get(settings, property);
+	let value = settings[property as keyof typeof settings];
 
 	if (value == null) {
 		throw new Error(`Setting not found: ${property}`);
 	}
 
-	if (_.isFunction(value)) {
+	if (typeof value === 'function') {
 		// This enables nifty things like dynamic
 		// settings that rely on other settings
 		value = value.call(settings);
