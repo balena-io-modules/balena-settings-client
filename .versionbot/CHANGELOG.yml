@@ -1,4 +1,57 @@
 - commits:
+    - subject: Drop support for property paths in the get method
+      hash: b76cf4d77028a5b9105aaa1496e59e31295bea3c
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+      author: Matthew Yarmolinsky
+    - subject: Drop support for node <20.12.0 and require es2019
+      hash: 9368203062a053fa1b2e20caa19b5db554b90eff
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+      author: Matthew Yarmolinsky
+    - subject: Update author to balena
+      hash: 6b5b7b62daa3db645e4a23e7671b32022aa8ba57
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Matthew Yarmolinsky
+    - subject: Drop Bluebird
+      hash: fb776ff50030b636a912e8b90295d5d6cec4b8c7
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Matthew Yarmolinsky
+    - subject: Drop mergeObjects in favor of es-toolkit `merge`
+      hash: 825e6b7f49e68a96fb2de2796e3867ffde0270fa
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Matthew Yarmolinsky
+    - subject: Replace `lodash` with `es-toolkit`
+      hash: e5cde58f3658c16d309968fc543eae71b97129dc
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Matthew Yarmolinsky
+    - subject: Update `jsdoc-to-markdown`
+      hash: 441e6ee5e676ee59a132f4949f9583791269db41
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Matthew Yarmolinsky
+  version: 6.0.0
+  title: ""
+  date: 2025-12-23T21:40:56.614Z
+- commits:
     - subject: Update TypeScript to 5.1.3
       hash: 9127d3d46c063abbd8a55af1a53492de54fb1154
       body: ""
