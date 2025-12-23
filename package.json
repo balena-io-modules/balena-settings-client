@@ -36,10 +36,13 @@
   },
   "devDependencies": {
     "@balena/lint": "^6.2.2",
+    "@resin.io/types-hidepath": "^1.0.1",
+    "@resin.io/types-home-or-tmp": "^3.0.0",
     "@resin.io/types-wary": "1.1.1",
     "@types/chai": "^4.2.11",
     "@types/chai-as-promised": "^7.1.2",
     "@types/common-tags": "^1.8.0",
+    "@types/js-yaml": "3.11.1",
     "@types/mocha": "^5.2.7",
     "@types/node": "^20.19.27",
     "chai": "^4.2.0",
@@ -56,9 +59,6 @@
     "wary": "^1.1.0"
   },
   "dependencies": {
-    "@resin.io/types-hidepath": "1.0.1",
-    "@resin.io/types-home-or-tmp": "3.0.0",
-    "@types/js-yaml": "3.11.1",
     "es-toolkit": "^1.42.0",
     "hidepath": "^1.0.0",
     "home-or-tmp": "^2.0.0",
