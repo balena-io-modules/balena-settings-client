@@ -1,4 +1,15 @@
 - commits:
+    - subject: Fix node engine version requirements
+      hash: 435893a6da9eb1efab4504eae5c91259ba834ebc
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Matthew Yarmolinsky
+  version: 6.0.1
+  title: ""
+  date: 2025-12-23T22:00:45.788Z
+- commits:
     - subject: Drop support for property paths in the get method
       hash: b76cf4d77028a5b9105aaa1496e59e31295bea3c
       body: ""
