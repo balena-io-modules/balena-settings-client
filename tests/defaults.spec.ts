@@ -1,68 +1,67 @@
 import { expect } from 'chai';
 import * as path from 'path';
-import * as url from 'url';
 
 import defaults = require('../lib/defaults');
 import * as utils from '../lib/utils';
 
 describe('Defaults:', () => {
 	describe('.balenaUrl', () => {
-		it('should be a valid url', () => {
-			const setting = utils.evaluateSetting<string>(defaults, 'balenaUrl');
-			expect(() => url.parse(setting)).to.not.throw(Error);
-		});
-
 		it('should not contain a protocol', () => {
 			const setting = utils.evaluateSetting<string>(defaults, 'balenaUrl');
-			expect(url.parse(setting).protocol).to.not.exist;
+			expect(setting).to.not.match(/^\w+:\/\//);
+		});
+
+		it('should be a valid url after adding a protocol', () => {
+			const setting = utils.evaluateSetting<string>(defaults, 'balenaUrl');
+			expect(() => new URL(`htps://${setting}`)).to.not.throw(Error);
 		});
 	});
 
 	describe('.apiUrl', () => {
 		it('should be a valid url', () => {
 			const setting = utils.evaluateSetting<string>(defaults, 'apiUrl');
-			expect(() => url.parse(setting)).to.not.throw(Error);
+			expect(() => new URL(setting)).to.not.throw(Error);
 		});
 
 		it('should contain an https protocol', () => {
 			const setting = utils.evaluateSetting<string>(defaults, 'apiUrl');
-			expect(url.parse(setting).protocol).to.equal('https:');
+			expect(new URL(setting).protocol).to.equal('https:');
 		});
 	});
 
 	describe('.vpnUrl', () => {
-		it('should be a valid url', () => {
-			const setting = utils.evaluateSetting<string>(defaults, 'vpnUrl');
-			expect(() => url.parse(setting)).to.not.throw(Error);
-		});
-
 		it('should not contain a protocol', () => {
 			const setting = utils.evaluateSetting<string>(defaults, 'vpnUrl');
-			expect(url.parse(setting).protocol).to.not.exist;
+			expect(setting).to.not.match(/^\w+:\/\//);
+		});
+
+		it('should be a valid url after adding a protocol', () => {
+			const setting = utils.evaluateSetting<string>(defaults, 'vpnUrl');
+			expect(() => new URL(`htps://${setting}`)).to.not.throw(Error);
 		});
 	});
 
 	describe('.registryUrl', () => {
-		it('should be a valid url', () => {
-			const setting = utils.evaluateSetting<string>(defaults, 'registryUrl');
-			expect(() => url.parse(setting)).to.not.throw(Error);
-		});
-
 		it('should not contain a protocol', () => {
 			const setting = utils.evaluateSetting<string>(defaults, 'registryUrl');
-			expect(url.parse(setting).protocol).to.not.exist;
+			expect(setting).to.not.match(/^\w+:\/\//);
+		});
+
+		it('should be a valid url after adding a protocol', () => {
+			const setting = utils.evaluateSetting<string>(defaults, 'registryUrl');
+			expect(() => new URL(`htps://${setting}`)).to.not.throw(Error);
 		});
 	});
 
 	describe('.registry2Url', () => {
-		it('should be a valid url', () => {
-			const setting = utils.evaluateSetting<string>(defaults, 'registry2Url');
-			expect(() => url.parse(setting)).to.not.throw(Error);
-		});
-
 		it('should not contain a protocol', () => {
 			const setting = utils.evaluateSetting<string>(defaults, 'registry2Url');
-			expect(url.parse(setting).protocol).to.not.exist;
+			expect(setting).to.not.match(/^\w+:\/\//);
+		});
+
+		it('should be a valid url after adding a protocol', () => {
+			const setting = utils.evaluateSetting<string>(defaults, 'registry2Url');
+			expect(() => new URL(`htps://${setting}`)).to.not.throw(Error);
 		});
 	});
 
@@ -77,48 +76,48 @@ describe('Defaults:', () => {
 	describe('.deltaUrl', () => {
 		it('should be a valid url', () => {
 			const setting = utils.evaluateSetting<string>(defaults, 'deltaUrl');
-			expect(() => url.parse(setting)).to.not.throw(Error);
+			expect(() => new URL(setting)).to.not.throw(Error);
 		});
 
 		it('should contain an https protocol', () => {
 			const setting = utils.evaluateSetting<string>(defaults, 'deltaUrl');
-			expect(url.parse(setting).protocol).to.equal('https:');
+			expect(new URL(setting).protocol).to.equal('https:');
 		});
 	});
 
 	describe('.dashboardUrl', () => {
 		it('should be a valid url', () => {
 			const setting = utils.evaluateSetting<string>(defaults, 'dashboardUrl');
-			expect(() => url.parse(setting)).to.not.throw(Error);
+			expect(() => new URL(setting)).to.not.throw(Error);
 		});
 
 		it('should contain an https protocol', () => {
 			const setting = utils.evaluateSetting<string>(defaults, 'dashboardUrl');
-			expect(url.parse(setting).protocol).to.equal('https:');
+			expect(new URL(setting).protocol).to.equal('https:');
 		});
 	});
 
 	describe('.proxyUrl', () => {
-		it('should be a valid url', () => {
-			const setting = utils.evaluateSetting<string>(defaults, 'proxyUrl');
-			expect(() => url.parse(setting)).to.not.throw(Error);
-		});
-
 		it('should not contain a protocol', () => {
 			const setting = utils.evaluateSetting<string>(defaults, 'proxyUrl');
-			expect(url.parse(setting).protocol).to.not.exist;
+			expect(setting).to.not.match(/^\w+:\/\//);
+		});
+
+		it('should be a valid url after adding a protocol', () => {
+			const setting = utils.evaluateSetting<string>(defaults, 'proxyUrl');
+			expect(() => new URL(`htps://${setting}`)).to.not.throw(Error);
 		});
 	});
 
 	describe('.tunnelUrl', () => {
-		it('should be a valid url', () => {
-			const setting = utils.evaluateSetting<string>(defaults, 'tunnelUrl');
-			expect(() => url.parse(setting)).to.not.throw(Error);
-		});
-
 		it('should not contain a protocol', () => {
 			const setting = utils.evaluateSetting<string>(defaults, 'tunnelUrl');
-			expect(url.parse(setting).protocol).to.not.exist;
+			expect(setting).to.not.match(/^\w+:\/\//);
+		});
+
+		it('should be a valid url after adding a protocol', () => {
+			const setting = utils.evaluateSetting<string>(defaults, 'tunnelUrl');
+			expect(() => new URL(`htps://${setting}`)).to.not.throw(Error);
 		});
 	});
 
