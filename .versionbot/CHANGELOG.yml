@@ -1,4 +1,24 @@
 - commits:
+    - subject: Update flowzone config
+      hash: a32c720f830e5448ffbe1eedc118d47e02f70e5d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+    - subject: "tests: Stop using url.parse"
+      hash: 5ed9723804b2e541870311858bdca45c91cb1a40
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        See: https://balena.fibery.io/Work/Project/2258
+        see: https://balena.fibery.io/Work/Project/2258
+      author: Thodoris Greasidis
+  version: 6.0.3
+  title: ""
+  date: 2026-02-12T18:20:43.947Z
+- commits:
     - subject: Move internal typing dependencies to devDependencies
       hash: 67f59074695dce97dd47ac85548561f83fc2e59a
       body: |

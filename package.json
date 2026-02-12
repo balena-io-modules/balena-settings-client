@@ -1,6 +1,6 @@
 {
   "name": "balena-settings-client",
-  "version": "6.0.2",
+  "version": "6.0.3",
   "description": "Balena client application shared settings",
   "main": "build/settings.js",
   "types": "build/settings.d.ts",
@@ -76,6 +76,6 @@
     ]
   },
   "versionist": {
-    "publishedAt": "2025-12-23T22:09:17.039Z"
+    "publishedAt": "2026-02-12T18:20:44.038Z"
   }
 }
